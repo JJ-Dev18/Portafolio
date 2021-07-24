@@ -1,0 +1,31 @@
+
+.App {
+
+  background-image: url('../../images/img\ 1.png');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  
+}
+.content_portada{
+  width: 200px;
+  height: 220px;
+  margin: auto;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin : -110px 0 0 -100px;
+}
+.tsparticles-canvas-el{
+    width: 100vw !important;
+    height: 100vh !important;
+}
+#caricatura{
+  width: 100%;
+ 
+}
+#logo_frontend{
+  width: 100%;
+}
