@@ -1,5 +1,4 @@
-import Caricatura from '../images/Caricatura.png'
-const caricatura = require.context('../images/', true)
+
 
 export  const configParticle = {
   particles: {

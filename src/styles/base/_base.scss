@@ -5,7 +5,6 @@ $base : #3c5474;
 
 
 
-
 $breakpoints:(
   sm:540px,
   md: 1024px,
@@ -15,4 +14,8 @@ $breakpoints:(
   @media screen and(min-width: map-get($map: $breakpoints, $key:$breakpoint )){
     @content
   }
+}
+@font-face {
+  font-family: 'Matrix';
+  src: url('../../font/matrix.ttf');
 }

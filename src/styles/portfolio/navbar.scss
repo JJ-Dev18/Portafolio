@@ -2,21 +2,37 @@
   position: fixed;
   bottom: 100;
   width: 100vw;
-  background: inherit;
+  background: transparent;
   height: 44px;
   z-index: 100;
+  
 
   @include media-up(lg){
     bottom: 0;
+    background: inherit;
   }
 }
 .content_navbar ul{
   list-style: none;
   text-decoration: none;
-  display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 100%;
+  display: none;
+  align-items: center;
+  @include media-up (lg){
+     display: flex;
+  }
 
+}
+.content_navbar img{
+  margin-left: 40px;
+  margin-top: 20px;
+  width: 50px;
+  cursor: pointer;
+  @include media-up(lg){
+    display: none;
+  }
 }
 .content_navbar ul li{
   margin-left: 10px;
