@@ -1,0 +1,26 @@
+.content_navbar{
+  position: fixed;
+  bottom: 100;
+  width: 100vw;
+  background: inherit;
+  height: 44px;
+  z-index: 100;
+
+  @include media-up(lg){
+    bottom: 0;
+  }
+}
+.content_navbar ul{
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.content_navbar ul li{
+  margin-left: 10px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}

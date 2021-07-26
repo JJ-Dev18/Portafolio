@@ -1,16 +1,26 @@
-import React from 'react'
+import React,{useReducer} from 'react'
+import { Main } from './components/Main';
+import { Navbar } from './components/Navbar'
 import { ParticleBackground } from './components/ParticleBackground'
-import Caricatura from './images/Caricatura.png'
-import Logo from './images/Logo-front.png'
+import {Context } from './context/Context'
+import { reducer } from './context/reducer';
 export const Portfolio = () => {
-  
+
+   const init = () => {
+     const estado  = {
+       portafolio : false,
+       inicio : false,
+     }
+     return estado;
+   };
+   const [estado, dispatch] = useReducer(reducer, {}, init);
   return (
-    <div className="App">
-      <div className="content_portada">
-        <img src={Caricatura} alt="imagen en caricatura de juan jose " id="caricatura"/>
-        <img src={Logo} alt="logo frontend" id="logo_frontend"/>
+    <Context.Provider value={{estado, dispatch}}>
+      <div className="App">
+        <Navbar />
+        <Main />
+        <ParticleBackground />
       </div>
-      <ParticleBackground />
-    </div>
+    </Context.Provider>
   );
 }
