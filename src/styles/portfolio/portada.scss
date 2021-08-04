@@ -1,0 +1,86 @@
+
+
+.content_portada{
+  width: 220px;
+  height: 220px;
+  margin: auto;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin : -110px 0 0 -100px;
+}
+.tsparticles-canvas-el{
+    width: 100vw !important;
+    height: 100vh !important;
+    cursor: grab;
+}
+#caricatura{
+  width: 100%;
+  height: 200px;
+  background: url('./../../images/caricatura2.png')center no-repeat;
+  background-size: contain;
+  transition: background 1s ease;
+ 
+}
+#caricatura:hover{
+  background: url('../../images/logo.png') center no-repeat;
+  background-size: cover;
+  
+}
+#logo{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  cursor: pointer;
+}
+#logo_frontend{
+  width: 100%;
+}
+.Typewriter{
+  margin-top: 10px;
+  color: white;
+  font-size: 25px;
+  font-family: 'Matrix', arial;
+  text-align: center;
+  // text-shadow: 4px 4px 4px #aaa;
+}
+
+.content_nav{
+   display: flex;
+   width: 100%;
+   margin-top: 20px;
+   justify-content: space-around;
+   
+}
+.button{
+  width: 70px;
+  height: 40px;
+  box-shadow: inset;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-weight: bold;
+  
+    &__about{
+      background: $html;
+      &:hover{
+        background: $htmlO
+      }
+    }
+    &__contact{
+      background: $css;
+       &:hover{
+        background: $cssO
+      }
+    }
+    &__projects{
+      background: $js;
+       &:hover{
+        background: $jsO
+      }
+    }
+}
+

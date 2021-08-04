@@ -1,4 +1,5 @@
 import React,{useReducer} from 'react'
+import { Copy } from './components/Copy';
 import { Main } from './components/Main';
 import { Navbar } from './components/Navbar'
 import { ParticleBackground } from './components/ParticleBackground'
@@ -17,8 +18,9 @@ export const Portfolio = () => {
   return (
     <Context.Provider value={{estado, dispatch}}>
       <div className="App">
-        <Navbar />
+        {/* <Navbar /> */}
         <Main />
+        <Copy/>
         <ParticleBackground />
       </div>
     </Context.Provider>
