@@ -1,27 +1,13 @@
 {
-  "files": {
-    "main.css": "/static/css/main.9805ff39.chunk.css",
-    "main.js": "/static/js/main.c16031f2.chunk.js",
-    "main.js.map": "/static/js/main.c16031f2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.a8eca24e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.a8eca24e.js.map",
-    "static/js/2.f3bad13b.chunk.js": "/static/js/2.f3bad13b.chunk.js",
-    "static/js/2.f3bad13b.chunk.js.map": "/static/js/2.f3bad13b.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.9805ff39.chunk.css.map": "/static/css/main.9805ff39.chunk.css.map",
-    "static/js/2.f3bad13b.chunk.js.LICENSE.txt": "/static/js/2.f3bad13b.chunk.js.LICENSE.txt",
-    "static/media/Gift.gif": "/static/media/Gift.9b2fdd47.gif",
-    "static/media/Heroes.gif": "/static/media/Heroes.febe5aed.gif",
-    "static/media/Journal.gif": "/static/media/Journal.38fdf201.gif",
-    "static/media/Matrix.gif": "/static/media/Matrix.9258015f.gif",
-    "static/media/Social.gif": "/static/media/Social.6ad973f9.gif",
-    "static/media/SweetShop.gif": "/static/media/SweetShop.4df23e2c.gif",
-    "static/media/styles.scss": "/static/media/matrix.5dca1e2a.ttf"
-  },
-  "entrypoints": [
-    "static/js/runtime-main.a8eca24e.js",
-    "static/js/2.f3bad13b.chunk.js",
-    "static/css/main.9805ff39.chunk.css",
-    "static/js/main.c16031f2.chunk.js"
-  ]
+  "main.js": "static/js/main.b8f2dbbe.js",
+  "main.js.map": "static/js/main.b8f2dbbe.js.map",
+  "static\\media\\Gift.gif": "static/media/Gift.6f21627c.gif",
+  "static\\media\\Heroes.gif": "static/media/Heroes.02005a44.gif",
+  "static\\media\\Journal.gif": "static/media/Journal.e7aa052c.gif",
+  "static\\media\\Matrix.gif": "static/media/Matrix.349142dd.gif",
+  "static\\media\\Social.gif": "static/media/Social.4453fcb1.gif",
+  "static\\media\\SweetShop.gif": "static/media/SweetShop.c025d192.gif",
+  "static\\media\\caricatura2.png": "static/media/caricatura2.f0c3b19c.png",
+  "static\\media\\logo.png": "static/media/logo.9a6b0f86.png",
+  "static\\media\\styles.scss": "static/media/styles.6ecad51a.scss"
 }
