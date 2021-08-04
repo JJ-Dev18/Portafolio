@@ -13,7 +13,7 @@ export const reducer = (state = {}, action ) => {
          case types.portOpen:
              return{
                  ...state,
-                 portafolio : true
+                 portafolio : !state.portafolio
              }
             
          case types.logout :

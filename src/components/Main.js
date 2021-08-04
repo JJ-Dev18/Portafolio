@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../context/Context";
 import { Portada } from "./Portada";
-import { Projects } from "./Projects";
+import { ProjectsScreen } from "./ProjectsScreen";
 import Logo from "../images/logo.png";
 
 export const Main = () => {
@@ -10,7 +10,7 @@ export const Main = () => {
   return (
     <>
       {/* <img src={Logo} id="logo" alt="logo" /> */}
-      {portafolio ? <Projects /> : <Portada />}
+      {portafolio ? <ProjectsScreen /> : <Portada />}
     </>
   );
 };
