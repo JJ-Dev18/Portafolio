@@ -5,7 +5,7 @@ import { Context } from "../context/Context";
 import Bars from '../images/bars.png'
 import logo from '../images/logo.png'
 
-export const Navbar = () => {
+export const Navbar = ({primer,segundo,tercero}) => {
    const { dispatch } = useContext(Context);
    const [openBar, setopenBar] = useState(false)
   const handleProjects = () => {
@@ -16,9 +16,11 @@ export const Navbar = () => {
   }
   return (
     <div className="content_nav">
-      <button className="button button__about">About me</button>
-      <button className="button button__contact">Contact</button>
-      <button className="button button__projects" onClick={handleProjects}>Projects</button>
+      <button className="button button__about" onClick={handleProjects}>
+        {primer}
+      </button>
+      <button className="button button__contact">{segundo}</button>
+      <button className="button button__projects">{tercero}</button>
     </div>
   );
 }

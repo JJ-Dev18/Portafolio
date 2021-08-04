@@ -10,6 +10,7 @@ import {projectsData} from '../data/projectsData'
 // import Social from "../images/gifs/Social.gif";
 import { openPortafolio } from '../actions/portfolio';
 import { Project } from './Project';
+import { Navbar } from './Navbar';
 
 export const ProjectsScreen = () => {
 
@@ -21,18 +22,18 @@ export const ProjectsScreen = () => {
     const projects = projectsData;
    
   return (
-
     <div className="content_projects">
       <div className="content_projects-title">
         <img src={Logo} onClick={handleCerrarPort} alt="logo" />
         <h1>Projects</h1>
       </div>
-      <div className="grid_projects">           
-          {
-            projects.map(project => (
-                 <Project key={project.nombre} project={project}/>
-            ))
-          }
+      <div className="grid_projects">
+        {projects.map((project) => (
+          <Project key={project.nombre} project={project} />
+        ))}
+      </div>
+      <div className="content_projects_nav">
+        <Navbar primer="Home" segundo="About me " tercero="Contact" />
       </div>
     </div>
   );
