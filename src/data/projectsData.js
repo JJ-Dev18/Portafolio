@@ -23,7 +23,7 @@ export const projectsData = [
   },
   {
     'nombre': 'SweetShop',
-    'img' :'SweethShop',
+    'img' :'SweetShop',
     'website':'https://jj-dev18.github.io/SweetShop/',
     'codigo' :'https://github.com/JJ-Dev18/SweetShop',
 
@@ -33,6 +33,7 @@ export const projectsData = [
     'img' :'Matrix',
     'website':'https://jj-dev18.github.io/Netflix-front/.',
     'codigo' :'https://github.com/JJ-Dev18/Netflix-front',
+    'imgId': 'matrix'
 
   },
   {
