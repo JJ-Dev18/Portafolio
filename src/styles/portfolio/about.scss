@@ -1,15 +1,16 @@
 .content_about {
   @include contents;
-  background: white;
+  background: transparent;
   font-family: "IBM Plex Sans", sans-serif;
   overflow: scroll;
+  color: white;
   @include media-up(lg){
     overflow: hidden;
   }
 }
 .content_about_title {
   text-align: center;
-  color: black;
+  color: white;
   padding: 10px;
 }
 .content_about_info {
@@ -34,6 +35,7 @@
     margin: 20px auto 40px;
     @include media-up(lg) {
       margin: 20px auto 0;
+      border-radius: 40px;
     }
   }
 }
@@ -42,11 +44,18 @@
   width: 100%;
   height: 100%;
   text-align: justify;
-  padding: 30px;
+ 
+
+  @include media-up(lg){
+ padding: 30px;
+  }
 
   p {
     margin-top: 10px;
     font-size: 1.5rem;
+    a{
+      color: white;
+    }
   }
 }
 .redes_about {
@@ -56,6 +65,7 @@
   justify-content: space-around;
   i {
     font-size: 2.7rem;
+    color: white;
     
     &:hover{
       opacity: .6;
@@ -79,6 +89,25 @@
     border: 1px solid white;
     &:hover{
       background: rgba($color: $react, $alpha: .6);
+    }
+  }
+}
+
+.content_skills{
+
+   margin-top: 20px;
+  .content_img_skills{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    img{
+      width: 60px;
+      margin-top: 20px;
+      margin-left: 20px;
+       @include media-up(lg){
+         margin-left: 100px;
+
+       }
     }
   }
 }

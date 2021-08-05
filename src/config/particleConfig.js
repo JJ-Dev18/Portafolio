@@ -45,7 +45,7 @@ export  const configParticle = {
         },
         {
           //firebase
-          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271070/Tecnologias%20Portafolio/firebase_logo_rdhf6n.png",
+          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1628187325/Tecnologias%20Portafolio/google-firebase-console_wt3v4x.png",
           height: 100,
           width: 100,
         },
@@ -64,15 +64,15 @@ export  const configParticle = {
         },
         {
           //javascript
-          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271998/Tecnologias%20Portafolio/kisspng-javascript-computer-icons-scalable-vector-graphics-list-of-javascript-enhancements-fandom-developers-5d145895b06253.7824611015616144857225-removebg-preview_zqzqtp.png",
+          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186582/Tecnologias%20Portafolio/js_kgnsha.png",
           height: 100,
-          width: 150,
+          width: 100,
         },
         {
           //html5
-          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267650/Tecnologias%20Portafolio/png-clipart-orange-and-white-5-lgoo-w3c-html5-logo-icons-logos-emojis-tech-companies-removebg-preview_niwcmc.png",
+          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186499/Tecnologias%20Portafolio/732212-removebg-preview_sg3xfq.png",
           height: 100,
-          width: 150,
+          width: 100,
         },
         {
           //react
@@ -89,9 +89,9 @@ export  const configParticle = {
 
         {
           //Bootstrap
-          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267152/Tecnologias%20Portafolio/Bootstrap__front-end_framework_-Logo.wine_hu2k2n.png",
+          src: "https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186755/Tecnologias%20Portafolio/bootstrap-logo-vector-download-removebg-preview_qbzp9b.png",
           height: 100,
-          width: 150,
+          width: 100,
         },
       ],
       stroke: {
