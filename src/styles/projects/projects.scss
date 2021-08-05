@@ -1,19 +1,10 @@
 .content_projects{
-  width: 80%;
-  height: 75%;
-  background: transparent;
-  z-index: 100;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  @include contents;
   overflow: scroll;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  transition: all 2s ease;
    
   @include media-up(lg){
     overflow: hidden;

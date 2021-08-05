@@ -2,8 +2,7 @@
 import React, { useContext ,useState} from "react";
 import { openPortafolio } from "../actions/portfolio";
 import { Context } from "../context/Context";
-import Bars from '../images/bars.png'
-import logo from '../images/logo.png'
+import {  NavLink } from "react-router-dom";
 
 export const Navbar = ({primer,segundo,tercero}) => {
    const { dispatch } = useContext(Context);
@@ -16,11 +15,15 @@ export const Navbar = ({primer,segundo,tercero}) => {
   }
   return (
     <div className="content_nav">
-      <button className="button button__about" onClick={handleProjects}>
-        {primer}
-      </button>
-      <button className="button button__contact">{segundo}</button>
-      <button className="button button__projects">{tercero}</button>
+      <NavLink exact to={`/${primer}`}>
+        <button className="button button__uno">{primer}</button>
+      </NavLink>
+      <NavLink exact to={`/${segundo}`}>
+        <button className="button button__dos">{segundo}</button>
+      </NavLink>
+      <NavLink exact to={`/${tercero}`}>
+        <button className="button button__tres">{tercero}</button>
+      </NavLink>
     </div>
   );
 }

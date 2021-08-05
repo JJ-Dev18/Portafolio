@@ -1,0 +1,84 @@
+.content_about {
+  @include contents;
+  background: white;
+  font-family: "IBM Plex Sans", sans-serif;
+  overflow: scroll;
+  @include media-up(lg){
+    overflow: hidden;
+  }
+}
+.content_about_title {
+  text-align: center;
+  color: black;
+  padding: 10px;
+}
+.content_about_info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  @include media-up(lg) {
+    flex-direction: row;
+  }
+}
+.img_about {
+  
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 50%;
+    margin: 20px auto 40px;
+    @include media-up(lg) {
+      margin: 20px auto 0;
+    }
+  }
+}
+.info_about {
+  
+  width: 100%;
+  height: 100%;
+  text-align: justify;
+  padding: 30px;
+
+  p {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+}
+.redes_about {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: space-around;
+  i {
+    font-size: 2.7rem;
+    
+    &:hover{
+      opacity: .6;
+    }
+  }
+  @include media-up(lg) {
+    width: 70%;
+  }
+}
+.content_button_cv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  .button_cv {
+    background: $react;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    &:hover{
+      background: rgba($color: $react, $alpha: .6);
+    }
+  }
+}

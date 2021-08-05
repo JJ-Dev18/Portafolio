@@ -33,7 +33,7 @@ export const ProjectsScreen = () => {
         ))}
       </div>
       <div className="content_projects_nav">
-        <Navbar primer="Home" segundo="About me " tercero="Contact" />
+        <Navbar primer="Home" segundo="About" tercero="Contact" />
       </div>
     </div>
   );

@@ -8,9 +8,8 @@ export const Main = () => {
   const { estado } = useContext(Context);
   const { portafolio } = estado;
   return (
-    <>
-      {/* <img src={Logo} id="logo" alt="logo" /> */}
+    <div>
       {portafolio ? <ProjectsScreen /> : <Portada />}
-    </>
+    </div>
   );
 };

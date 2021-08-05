@@ -47,40 +47,4 @@
   // text-shadow: 4px 4px 4px #aaa;
 }
 
-.content_nav{
-   display: flex;
-   width: 100%;
-   margin-top: 20px;
-   justify-content: space-around;
-   
-}
-.button{
-  width: 70px;
-  height: 40px;
-  box-shadow: inset;
-  border-radius: 10px;
-  color: white;
-  border: 1px solid gray;
-  cursor: pointer;
-  font-weight: bold;
-  
-    &__about{
-      background: $html;
-      &:hover{
-        background: $htmlO
-      }
-    }
-    &__contact{
-      background: $css;
-       &:hover{
-        background: $cssO
-      }
-    }
-    &__projects{
-      background: $js;
-       &:hover{
-        background: $jsO
-      }
-    }
-}
 

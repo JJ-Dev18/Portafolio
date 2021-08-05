@@ -1,42 +1,38 @@
-.content_navbar{
-  position: fixed;
-  bottom: 100;
-  width: 100vw;
-  background: transparent;
-  height: 44px;
-  z-index: 100;
-  
 
-  @include media-up(lg){
-    bottom: 0;
-    background: inherit;
-  }
+.content_nav{
+   display: flex;
+   width: 100%;
+   margin-top: 20px;
+   justify-content: space-around;
+   
 }
-.content_navbar ul{
-  list-style: none;
-  text-decoration: none;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 100%;
-  display: none;
-  align-items: center;
-  @include media-up (lg){
-     display: flex;
-  }
-
-}
-.content_navbar img{
-  margin-left: 40px;
-  margin-top: 20px;
-  width: 50px;
-  cursor: pointer;
-  @include media-up(lg){
-    display: none;
-  }
-}
-.content_navbar ul li{
-  margin-left: 10px;
+.button{
+  width: 70px;
+  height: 40px;
+  box-shadow: inset;
+  border-radius: 10px;
   color: white;
-  font-size: 2rem;
+  border: 1px solid gray;
   cursor: pointer;
+  font-weight: bold;
+  border: 1px solid white;
+  
+    &__uno{
+      background: $html;
+      &:hover{
+        background: $htmlO
+      }
+    }
+    &__dos{
+      background: $css;
+       &:hover{
+        background: $cssO
+      }
+    }
+    &__tres{
+      background: $js;
+       &:hover{
+        background: $jsO
+      }
+    }
 }

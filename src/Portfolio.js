@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar'
 import { ParticleBackground } from './components/ParticleBackground'
 import {Context } from './context/Context'
 import { reducer } from './context/reducer';
+import { AppRouter } from './router/AppRouter';
 export const Portfolio = () => {
 
    const init = () => {
@@ -17,12 +18,7 @@ export const Portfolio = () => {
    const [estado, dispatch] = useReducer(reducer, {}, init);
   return (
     <Context.Provider value={{estado, dispatch}}>
-      <div className="App">
-        {/* <Navbar /> */}
-        <Main />
-        <Copy/>
-        <ParticleBackground />
-      </div>
+     <AppRouter/>
     </Context.Provider>
   );
 }

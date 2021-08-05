@@ -22,8 +22,21 @@ $breakpoints:(
   @media screen and(min-width: map-get($map: $breakpoints, $key:$breakpoint )){
     @content
   }
+};
+@mixin contents{
+  width: 80%;
+  height: 75%;
+  background: transparent;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 @font-face {
   font-family: 'Matrix';
   src: url('../../font/matrix.ttf');
 }
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
