@@ -61,8 +61,17 @@
 .redes_about {
   display: flex;
   margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   justify-content: space-around;
+  a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    // font-family:"IBM Plex Sans", sans-serif; 
+  }
   i {
     font-size: 2.7rem;
     color: white;

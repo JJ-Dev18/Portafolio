@@ -12,15 +12,18 @@ export const About = () => {
           <div className="redes_about">
             <a href="mailto:jj.murillo182020@gmail.com" target="_blank">
               <i className="fas fa-envelope"></i>
+              E-mail
             </a>
             <a href="https://github.com/JJ-Dev18" target="_blank">
-              <i className="fab fa-github"></i>
+              <i className="fab fa-github" alt="Github"></i>
+              GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/juan-jos%C3%A9-murillo-5b4b201bb/"
               target="_blank"
             >
               <i className="fab fa-linkedin"></i>
+              Linkedin
             </a>
           </div>
         </div>
