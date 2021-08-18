@@ -1,6 +1,5 @@
 import React ,{useContext} from 'react'
 import { Context } from '../context/Context';
-import Caricatura from "../images/caricatura2.png";
 
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';

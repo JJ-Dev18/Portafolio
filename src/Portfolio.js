@@ -1,8 +1,5 @@
 import React,{useReducer} from 'react'
-import { Copy } from './components/Copy';
-import { Main } from './components/Main';
-import { Navbar } from './components/Navbar'
-import { ParticleBackground } from './components/ParticleBackground'
+
 import {Context } from './context/Context'
 import { reducer } from './context/reducer';
 import { AppRouter } from './router/AppRouter';

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-do
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
 import { Copy } from '../components/Copy';
-import { Main } from '../components/Main';
 import { ParticleBackground } from '../components/ParticleBackground';
 import { Portada } from '../components/Portada';
 import { ProjectsScreen } from '../components/ProjectsScreen';

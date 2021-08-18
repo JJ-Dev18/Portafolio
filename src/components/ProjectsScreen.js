@@ -16,7 +16,7 @@ export const ProjectsScreen = () => {
 
     const { dispatch } = useContext(Context);
     const [current, setCurrent] = useState(0)
-    const [search, setSearch] = useState("");
+    // const [search, setSearch] = useState("");
     const handleCerrarPort = () => {
       dispatch(openPortafolio())
     }
@@ -44,7 +44,7 @@ export const ProjectsScreen = () => {
     // };
     
  
-    console.log(filterProjects())
+   
   return (
     <div className="content_projects">
       <div className="content_projects-title">
@@ -57,8 +57,8 @@ export const ProjectsScreen = () => {
         ))}
       </div>
       <div className="navigation">
-        <i class="fas fa-arrow-circle-left" onClick={prevPage}></i>
-        <i class="fas fa-arrow-circle-right" onClick={nextPage}></i>
+        <i className="fas fa-arrow-circle-left" onClick={prevPage}></i>
+        <i className="fas fa-arrow-circle-right" onClick={nextPage}></i>
       </div>
       <div className="content_projects_nav">
         <Navbar primer="Home" segundo="About" tercero="Contact" />

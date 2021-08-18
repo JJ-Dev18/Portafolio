@@ -51,6 +51,11 @@
 #matrix {
   display: flex;
   justify-content: center;
+  li{
+    img{
+      width: 27px;
+    }
+  }
   img {
     width: 70%;
     @include media-up(lg) {
@@ -65,27 +70,27 @@
   box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px,
     rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px,
     rgba(240, 46, 170, 0.05) 0px 25px;
-  // box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-  // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  // box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
   display: flex;
   position: relative;
 
   &:hover {
     .info_project {
-      opacity: 0.8;
+     background: rgba(0, 0, 0, 0.418);
+     display: initial;
     }
+    
   }
   .info_project {
-    background: black;
-    opacity: 0;
+    
+    // background-color: black;
+    // opacity: 0;
     width: 100%;
     height: 100%;
     top: 0;
-    display: flex;
+    // display: flex;
     padding: 20%;
     flex-direction: column;
-    // display: none;
+    display: none;
     position: absolute;
     z-index: 3;
     h1 {
@@ -113,6 +118,28 @@
     height: 100%;
     border-radius: 10px;
     cursor: pointer;
+  }
+}
+.tecnologias{
+  display: flex;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.89);
+  z-index: 99999;
+  max-width: 50%;
+  justify-content: space-around;
+  padding:0  10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  position: absolute;
+  // border: 1px solid gray;
+  border-radius: 5px 10px;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  list-style: none;
+  img{
+    margin: 2px 3px;
+    width: 27px;
+    cursor: default ;
   }
 }
 .navigation {

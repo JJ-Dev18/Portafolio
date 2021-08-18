@@ -8,19 +8,28 @@ export const About = () => {
       <h1 className="content_about_title">About me </h1>
       <div className="content_about_info">
         <div className="img_about">
-          <img src={Yo} />
+          <img src={Yo} alt='Mi foto de perfil' />
           <div className="redes_about">
-            <a href="mailto:jj.murillo182020@gmail.com" target="_blank">
+            <a
+              href="mailto:jj.murillo182020@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="fas fa-envelope"></i>
               E-mail
             </a>
-            <a href="https://github.com/JJ-Dev18" target="_blank">
+            <a
+              href="https://github.com/JJ-Dev18"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="fab fa-github" alt="Github"></i>
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/juan-jos%C3%A9-murillo-5b4b201bb/"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fab fa-linkedin"></i>
               Linkedin
@@ -42,6 +51,7 @@ export const About = () => {
             <a
               href="https://drive.google.com/file/d/1Ib5Q1k9ZmbYnqDoEEGsnnCXGJZG_qs0o/view?usp=sharing"
               target="_blank"
+              rel="noreferrer"
             >
               CV .
             </a>
@@ -57,19 +67,53 @@ export const About = () => {
           <div className="content_skills">
             <h1>Skills</h1>
             <div className="content_img_skills">
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186499/Tecnologias%20Portafolio/732212-removebg-preview_sg3xfq.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267498/Tecnologias%20Portafolio/kisspng-web-development-cascading-style-sheets-css3-comput-css-5ada20bdc01225.3371933415242446697867-removebg-preview_iuaieb.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186582/Tecnologias%20Portafolio/js_kgnsha.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627270910/Tecnologias%20Portafolio/reactjs-logo_yoadsg.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267556/Tecnologias%20Portafolio/png-clipart-sass-cascading-style-sheets-preprocessor-less-postcss-meng-miscellaneous-text-thumbnail-removebg-preview_jva8n2.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186755/Tecnologias%20Portafolio/bootstrap-logo-vector-download-removebg-preview_qbzp9b.png" />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186499/Tecnologias%20Portafolio/732212-removebg-preview_sg3xfq.png"
+                alt="tecnologia"
+              />
+              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267498/Tecnologias%20Portafolio/kisspng-web-development-cascading-style-sheets-css3-comput-css-5ada20bdc01225.3371933415242446697867-removebg-preview_iuaieb.png" 
+              alt='Tecnologia'/>
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186582/Tecnologias%20Portafolio/js_kgnsha.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627270910/Tecnologias%20Portafolio/reactjs-logo_yoadsg.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267556/Tecnologias%20Portafolio/png-clipart-sass-cascading-style-sheets-preprocessor-less-postcss-meng-miscellaneous-text-thumbnail-removebg-preview_jva8n2.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186755/Tecnologias%20Portafolio/bootstrap-logo-vector-download-removebg-preview_qbzp9b.png"
+                alt="tecnologia"
+              />
 
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271517/Tecnologias%20Portafolio/kisspng-github-repository-commit-version-control-github-5ab8bdf6f3ad65.7277177015220566949981-removebg-preview_zst92h.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271544/Tecnologias%20Portafolio/kisspng-github-continuous-integration-microsoft-azure-sour-innovation-research-lab-irl-5d0ee306c7f871.6978428915612567108191-removebg-preview_jmznii.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628187325/Tecnologias%20Portafolio/google-firebase-console_wt3v4x.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188119/Tecnologias%20Portafolio/nodejs_sz109v.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188296/Tecnologias%20Portafolio/MySQL.svg_agocgb.png" />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188394/Tecnologias%20Portafolio/mongodb-logo-clipart-1_s5qdih.png" />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271517/Tecnologias%20Portafolio/kisspng-github-repository-commit-version-control-github-5ab8bdf6f3ad65.7277177015220566949981-removebg-preview_zst92h.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627271544/Tecnologias%20Portafolio/kisspng-github-continuous-integration-microsoft-azure-sour-innovation-research-lab-irl-5d0ee306c7f871.6978428915612567108191-removebg-preview_jmznii.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628187325/Tecnologias%20Portafolio/google-firebase-console_wt3v4x.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188119/Tecnologias%20Portafolio/nodejs_sz109v.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188296/Tecnologias%20Portafolio/MySQL.svg_agocgb.png"
+                alt="tecnologia"
+              />
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188394/Tecnologias%20Portafolio/mongodb-logo-clipart-1_s5qdih.png"
+                alt="tecnologia"
+              />
             </div>
           </div>
         </div>

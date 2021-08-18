@@ -1,7 +1,8 @@
 import React from 'react'
 
 const projectImg = require.context("../images/gifs",true)
-console.log(projectImg)
+const projectTec = require.context('../images/svg',true)
+console.log(projectTec(`./html.svg`))
 export const Project = ({project}) => {
   
   return (
@@ -12,6 +13,13 @@ export const Project = ({project}) => {
       />
       <div className="info_project">
         <h1>{project.nombre} </h1>
+        <ul className="tecnologias">
+          {project.tecnologias.map((tec) => (
+            <li>
+              <img src={projectTec(`./${tec}.svg`).default} alt ='tecnologias usadas'/>
+            </li>
+          ))}
+        </ul>
         <div className="info_project_enlaces">
           <a href={project.website} target="_blank" rel="noreferrer">
             <i className="fas fa-globe"></i>
