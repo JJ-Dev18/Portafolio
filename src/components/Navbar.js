@@ -21,9 +21,9 @@ export const Navbar = ({primer,segundo,tercero}) => {
       <NavLink exact to={`/${segundo}`}>
         <button className="button button__dos">{segundo}</button>
       </NavLink>
-      <NavLink exact to={`/${tercero}`}>
+      {/* <NavLink exact to={`/${tercero}`}>
         <button className="button button__tres">{tercero}</button>
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 }

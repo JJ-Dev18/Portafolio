@@ -75,7 +75,7 @@ export const About = () => {
         </div>
       </div>
       <div className="content_projects_nav">
-        <Navbar primer="Home" segundo="Projects" tercero="Contact" />
+        <Navbar primer="Home" segundo="Projects" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useState} from 'react'
 import { Context } from "../context/Context";
 import Logo from '../images/logo.png'
 import {projectsData} from '../data/projectsData'
@@ -15,12 +15,36 @@ import { Navbar } from './Navbar';
 export const ProjectsScreen = () => {
 
     const { dispatch } = useContext(Context);
-    
+    const [current, setCurrent] = useState(0)
+    const [search, setSearch] = useState("");
     const handleCerrarPort = () => {
       dispatch(openPortafolio())
     }
-    const projects = projectsData;
-   
+       const projects = projectsData;
+    const filterProjects = ()=> {
+
+        // if (search.length === 0)
+         return projects.slice(current, current + 6);
+
+        // const filtered = projects.filter((project) => project.name.includes(search));
+        // return filtered.slice(currentPage, currentPage + 5);
+    }
+    const nextPage = () => {
+      if(projects.length > current + 6 )
+        setCurrent(current+6)
+    }
+    const prevPage = () => {
+       if(current > 0){
+         setCurrent(current - 6 );
+       }
+    }
+    // const onSearchChange = ({ target }) => {
+    //   setCurrent(0);
+    //   setSearch(target.value);
+    // };
+    
+ 
+    console.log(filterProjects())
   return (
     <div className="content_projects">
       <div className="content_projects-title">
@@ -28,9 +52,13 @@ export const ProjectsScreen = () => {
         <h1>Projects</h1>
       </div>
       <div className="grid_projects">
-        {projects.map((project) => (
+        {filterProjects().map((project) => (
           <Project key={project.nombre} project={project} />
         ))}
+      </div>
+      <div className="navigation">
+        <i class="fas fa-arrow-circle-left" onClick={prevPage}></i>
+        <i class="fas fa-arrow-circle-right" onClick={nextPage}></i>
       </div>
       <div className="content_projects_nav">
         <Navbar primer="Home" segundo="About" tercero="Contact" />

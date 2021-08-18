@@ -38,7 +38,7 @@ export const Portada = () => {
         />
       </div>
      
-      <Navbar primer="Projects" segundo="Contact" tercero="About"/>
+      <Navbar primer="Projects" segundo="About" tercero="About"/>
 
       {/* <img src={Logo} alt="logo frontend" id="logo_frontend" /> */}
     </div>
