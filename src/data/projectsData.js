@@ -1,20 +1,4 @@
-
-
 export const projectsData = [
-  {
-    nombre: "React Gif expert",
-    img: "Gift",
-    website: "https://jj-dev18.github.io/React-gif-expert/",
-    codigo: "https://github.com/JJ-Dev18/React-gif-expert",
-    tecnologias: ["html", "css", "react"],
-  },
-  {
-    nombre: "Heroes App",
-    img: "Heroes",
-    website: "https://jj-dev18.github.io/ReactHeroes/",
-    codigo: "https://github.com/JJ-Dev18/ReactHeroes",
-    tecnologias: ["html", "bootstrap", "react"],
-  },
   {
     nombre: "Journal Entries",
     img: "Journal",
@@ -30,25 +14,47 @@ export const projectsData = [
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },
   {
-    nombre: "Social Media Dashboard",
-    img: "Social",
-    website: "https://jj-dev18.github.io/Social-media/",
-    codigo: "https://github.com/JJ-Dev18/Social-media",
+    nombre: "Carrito Compras Hamburguer",
+    img: "Carrito",
+    website: "https://jj-dev18.github.io/carritoJs/",
+    codigo: "https://github.com/JJ-Dev18/carritoJs",
     tecnologias: ["html", "css", "js"],
+  },
+  {
+    nombre: "Chat Wsp",
+    img: "Chat",
+    website: "https://chat-javascript-8fe71.web.app/",
+    codigo: "https://github.com/JJ-Dev18/chatJavacript",
+    tecnologias: ["html", "css", "js", "firebase"],
+  },
+  {
+    nombre: "Heroes App",
+    img: "Heroes",
+    website: "https://jj-dev18.github.io/ReactHeroes/",
+    codigo: "https://github.com/JJ-Dev18/ReactHeroes",
+    tecnologias: ["html", "bootstrap", "react"],
   },
   {
     nombre: "Juana Bakery",
     img: "Bakery",
     website: "https://worktic-prueba.herokuapp.com/",
     codigo: "https://github.com/JJ-Dev18/pruebasWorktic",
-    tecnologias: ["html", "css" , "bootstrap" ,"php", "mysql", ],
+    tecnologias: ["html", "css", "bootstrap", "php", "mysql"],
   },
   {
-    nombre: "Carrito Compras Hamburguer",
-    img: "Carrito",
-    website: "https://jj-dev18.github.io/carritoJs/",
-    codigo: "https://github.com/JJ-Dev18/carritoJs",
-    tecnologias: ["html", "css", "js",],
+    nombre: "React Gif expert",
+    img: "Gift",
+    website: "https://jj-dev18.github.io/React-gif-expert/",
+    codigo: "https://github.com/JJ-Dev18/React-gif-expert",
+    tecnologias: ["html", "css", "react"],
+  },
+
+  {
+    nombre: "Social Media Dashboard",
+    img: "Social",
+    website: "https://jj-dev18.github.io/Social-media/",
+    codigo: "https://github.com/JJ-Dev18/Social-media",
+    tecnologias: ["html", "css", "js"],
   },
 
   {

@@ -19,6 +19,9 @@ export const Navbar = ({primer,segundo,tercero}) => {
       <NavLink exact to={`/${segundo}`}>
         <button className="button button__dos">{segundo}</button>
       </NavLink>
+      <a href="mailto:juanjomb1_vi@hotmai.com">
+        <button className="button button__tres" >Contact</button>
+      </a>
       {/* <NavLink exact to={`/${tercero}`}>
         <button className="button button__tres">{tercero}</button>
       </NavLink> */}

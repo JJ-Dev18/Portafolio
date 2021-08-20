@@ -2,7 +2,6 @@ import React from 'react'
 
 const projectImg = require.context("../images/gifs",true)
 const projectTec = require.context('../images/svg',true)
-console.log(projectTec(`./html.svg`))
 export const Project = ({project}) => {
   
   return (
