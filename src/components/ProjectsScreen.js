@@ -2,12 +2,7 @@ import React,{useContext,useState} from 'react'
 import { Context } from "../context/Context";
 import Logo from '../images/logo.png'
 import {projectsData} from '../data/projectsData'
-// import Gift from '../images/gifs/Gift.gif'
-// import Heroes from '../images/gifs/Heroes.gif'
-// import Journal from "../images/gifs/Journal.gif";
-// import SweetShop from "../images/gifs/SweetShop.gif";
-// import Matrix from "../images/gifs/Matrix.gif";
-// import Social from "../images/gifs/Social.gif";
+import { motion } from "framer-motion";
 import { openPortafolio } from '../actions/portfolio';
 import { Project } from './Project';
 import { Navbar } from './Navbar';
@@ -47,19 +42,29 @@ export const ProjectsScreen = () => {
    
   return (
     <div className="content_projects">
-      <div className="content_projects-title">
+      <motion.div
+        className="content_projects-title"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeOut", duration: 1.5 }}
+      >
         <img src={Logo} onClick={handleCerrarPort} alt="logo" />
         <h1>Projects</h1>
-      </div>
+      </motion.div>
       <div className="grid_projects">
         {filterProjects().map((project) => (
           <Project key={project.nombre} project={project} />
         ))}
       </div>
-      <div className="navigation">
+      <motion.div
+        className="navigation"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeOut", duration: 1.5 }}
+      >
         <i className="fas fa-arrow-circle-left" onClick={prevPage}></i>
         <i className="fas fa-arrow-circle-right" onClick={nextPage}></i>
-      </div>
+      </motion.div>
       <div className="content_projects_nav">
         <Navbar primer="Home" segundo="About" tercero="Contact" />
       </div>

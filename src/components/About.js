@@ -1,53 +1,84 @@
 import React from 'react'
 import { Navbar } from './Navbar'
 import Yo from '../images/yo.png'
+import { motion } from "framer-motion";
 
 export const About = () => {
   return (
     <div className="content_about">
-      <h1 className="content_about_title">About me </h1>
+      <motion.h1
+        className="content_about_title"
+        initial={{ y: "-100", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeOut", duration: 1.5 }}
+      >
+        About me{" "}
+      </motion.h1>
       <div className="content_about_info">
         <div className="img_about">
-          <img src={Yo} alt='Mi foto de perfil' />
+          <motion.img
+            src={Yo}
+            alt="Mi foto de perfil"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 3, delay: 1.5 }}
+          />
           <div className="redes_about">
-            <a
+            <motion.a
               href="mailto:jj.murillo182020@gmail.com"
               target="_blank"
               rel="noreferrer"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ease: "easeOut", duration: 3, delay: 1.6 }}
             >
               <i className="fas fa-envelope"></i>
               E-mail
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="https://github.com/JJ-Dev18"
               target="_blank"
               rel="noreferrer"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ease: "easeOut", duration: 3, delay: 1.7 }}
             >
               <i className="fab fa-github" alt="Github"></i>
               GitHub
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="https://www.linkedin.com/in/juan-jos%C3%A9-murillo-5b4b201bb/"
               target="_blank"
               rel="noreferrer"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ease: "easeOut", duration: 3, delay: 1.8 }}
             >
               <i className="fab fa-linkedin"></i>
               Linkedin
-            </a>
+            </motion.a>
           </div>
         </div>
         <div className="info_about">
-          <h1>
+          <motion.h1
+            initial={{ x: "100vw", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 3, delay: 1 }}
+          >
             Hello I'm <span>Juan José Murillo </span>
-          </h1>
+          </motion.h1>
 
-          <p>
+          <motion.p
+            initial={{ x: "100vw", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 3, delay: 1.3 }}
+          >
             {" "}
             I consider myself a self-taught person with a "Never stop learning"
-            philosophy. I'm passionate about learning everything, although at
-            this moment I'm a front-developer, now I'm learning technologies
-            about backend as Node, Php, and Java. Even I'm learning English at
-            the same time, More about my studies in my{" "}
+            philosophy. I'm passionate about learning everything, although
+            currently I'm a front-developer, I'm learning technologies about
+            backend such as Node, Php, and Java. Even I'm learning English at the
+            same time, More about my studies in my{" "}
             <a
               href="https://drive.google.com/file/d/1Ib5Q1k9ZmbYnqDoEEGsnnCXGJZG_qs0o/view?usp=sharing"
               target="_blank"
@@ -63,16 +94,29 @@ export const About = () => {
             >
               CV
             </a> */}
-          </p>
+          </motion.p>
           <div className="content_skills">
-            <h1>Skills</h1>
-            <div className="content_img_skills">
+            <motion.h1
+              initial={{ x: "100vw", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ease: "easeOut", duration: 4, delay: 1.5 }}
+            >
+              Skills
+            </motion.h1>
+            <motion.div
+              className="content_img_skills"
+              initial={{ y: "100vh", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeOut", duration: 4, delay: 1.8 }}
+            >
               <img
                 src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186499/Tecnologias%20Portafolio/732212-removebg-preview_sg3xfq.png"
                 alt="tecnologia"
               />
-              <img src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267498/Tecnologias%20Portafolio/kisspng-web-development-cascading-style-sheets-css3-comput-css-5ada20bdc01225.3371933415242446697867-removebg-preview_iuaieb.png" 
-              alt='Tecnologia'/>
+              <img
+                src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1627267498/Tecnologias%20Portafolio/kisspng-web-development-cascading-style-sheets-css3-comput-css-5ada20bdc01225.3371933415242446697867-removebg-preview_iuaieb.png"
+                alt="Tecnologia"
+              />
               <img
                 src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628186582/Tecnologias%20Portafolio/js_kgnsha.png"
                 alt="tecnologia"
@@ -114,7 +158,7 @@ export const About = () => {
                 src="https://res.cloudinary.com/dbi95d6gs/image/upload/v1628188394/Tecnologias%20Portafolio/mongodb-logo-clipart-1_s5qdih.png"
                 alt="tecnologia"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -35,4 +35,26 @@
         background: $jsO
       }
     }
+    &__website{
+      background: $js;
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      width: fit-content; 
+      padding: 20px;     
+       &:hover{
+        background: $react
+      }
+    }
+    &__codigo{
+      background: $react;
+      padding: 20px; 
+      display: flex;  
+      width: fit-content; 
+      justify-items: center;
+      align-items: center; 
+       &:hover{
+        background: $jsO
+      }
+    }
 }

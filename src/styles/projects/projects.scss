@@ -72,14 +72,14 @@
     rgba(240, 46, 170, 0.05) 0px 25px;
   display: flex;
   position: relative;
-
-  &:hover {
-    .info_project {
-     background: rgba(0, 0, 0, 0.418);
-     display: initial;
-    }
-    
+     &:hover {
+        .info_project {
+          background: rgba(0, 0, 0, 0.418);
+          display: initial;
+        }
   }
+
+  
   .info_project {
     
     // background-color: black;
@@ -97,20 +97,13 @@
       color: white;
       text-align: center;
     }
-
-    .info_project_enlaces {
-      display: flex;
-      margin-top: 20px;
-      justify-content: space-around;
-      a {
-        color: white;
-
-        &:hover {
-          color: $react;
-          font-weight: bold;
-        }
-      }
+    button{
+      background-color: inherit;
+      border-radius: 10px;
+      padding: 10px;
     }
+
+   
   }
 
   img {
@@ -118,13 +111,15 @@
     height: 100%;
     border-radius: 10px;
     cursor: pointer;
+  
+   
   }
 }
 .tecnologias{
   display: flex;
   height: 30px;
   background: rgba(0, 0, 0, 0.89);
-  z-index: 99999;
+  z-index: 99;
   max-width: 50%;
   justify-content: space-around;
   padding:0  10px;
@@ -146,7 +141,7 @@
   display: flex;
   position: fixed;
   top: 70px;
-  z-index: 9999999;
+  z-index: 99;
   width: 100%;
   justify-content: space-around;
 
@@ -188,3 +183,65 @@
     bottom: 30px;
   }
 }
+
+
+// MODAL 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+      .modal{
+      max-width: 600px;
+      max-height: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: white;
+      box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+          .contentModal{
+            display: flex;
+            margin-top: 15px;
+            p{
+              text-align: left;
+              padding: 10px;
+              line-height: 1.5rem;
+              font-weight: bold;
+            }
+            img{
+              width: 50%;
+            }
+             
+          }
+          .info_project_enlaces {
+              display: flex;
+              margin-top: 20px;
+              justify-content: space-around;
+              a {
+                color: white;
+                text-decoration: none;
+                margin-left: 10px;
+                i{
+                margin-right: 5px;
+                }
+                &:hover {
+                 
+                  font-weight: bold;
+                }
+              
+              }
+              }
+    }
+}
+
+
+

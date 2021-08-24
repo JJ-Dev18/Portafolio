@@ -1,6 +1,6 @@
 import React ,{useContext} from 'react'
 import { Context } from '../context/Context';
-
+import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';
 
@@ -14,17 +14,29 @@ export const Portada = () => {
         alt="imagen en caricatura de juan jose "
         id="caricatura"
       /> */}
-      <div id="caricatura"></div>
-      <div className="Typewriter">
+      <motion.div
+        id="caricatura"
+        initial={{ x: -1000, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ ease: "easeOut", duration: 1.5 }}
+      ></motion.div>
+      <motion.div
+        className="Typewriter"
+        initial={{ x: -1000, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ ease: "easeOut", duration: 2, delay: 1.5 }}
+      >
         Hello I am
         <Typewriter
           options={{
             autoStart: true,
             loop: true,
+            
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString("Juan Jose ")
+              .pauseFor(2300)
+              .typeString("Juan Jose")
               .start()
               .deleteAll()
               .typeString("System engineer")
@@ -35,9 +47,9 @@ export const Portada = () => {
               .deleteAll();
           }}
         />
-      </div>
-     
-      <Navbar primer="Projects" segundo="About" tercero="About"/>
+      </motion.div>
+
+      <Navbar primer="Projects" segundo="About" tercero="About" />
 
       {/* <img src={Logo} alt="logo frontend" id="logo_frontend" /> */}
     </div>

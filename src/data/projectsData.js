@@ -4,6 +4,9 @@ export const projectsData = [
     img: "Journal",
     website: "https://jj-dev18.github.io/JournalEntries/",
     codigo: "https://github.com/JJ-Dev18/JournalEntries",
+    description:
+      "Aplicacion web para el manejo de un diario , diseno minimalista, inicio de sesion con google, estilos con sass, y Firebase como Backend",
+
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },
   {
@@ -11,6 +14,8 @@ export const projectsData = [
     img: "SweetShop",
     website: "https://jj-dev18.github.io/SweetShop/",
     codigo: "https://github.com/JJ-Dev18/SweetShop",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },
   {
@@ -18,6 +23,8 @@ export const projectsData = [
     img: "Carrito",
     website: "https://jj-dev18.github.io/carritoJs/",
     codigo: "https://github.com/JJ-Dev18/carritoJs",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css", "js"],
   },
   {
@@ -25,13 +32,17 @@ export const projectsData = [
     img: "Chat",
     website: "https://chat-javascript-8fe71.web.app/",
     codigo: "https://github.com/JJ-Dev18/chatJavacript",
-    tecnologias: ["html", "css", "js", "firebase"],
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+    tecnologias: ["html", "css", "tailwind", "js", "firebase"],
   },
   {
     nombre: "Heroes App",
     img: "Heroes",
     website: "https://jj-dev18.github.io/ReactHeroes/",
     codigo: "https://github.com/JJ-Dev18/ReactHeroes",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "bootstrap", "react"],
   },
   {
@@ -39,6 +50,8 @@ export const projectsData = [
     img: "Bakery",
     website: "https://worktic-prueba.herokuapp.com/",
     codigo: "https://github.com/JJ-Dev18/pruebasWorktic",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css", "bootstrap", "php", "mysql"],
   },
   {
@@ -46,6 +59,8 @@ export const projectsData = [
     img: "Gift",
     website: "https://jj-dev18.github.io/React-gif-expert/",
     codigo: "https://github.com/JJ-Dev18/React-gif-expert",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css", "react"],
   },
 
@@ -54,6 +69,8 @@ export const projectsData = [
     img: "Social",
     website: "https://jj-dev18.github.io/Social-media/",
     codigo: "https://github.com/JJ-Dev18/Social-media",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css", "js"],
   },
 
@@ -62,6 +79,8 @@ export const projectsData = [
     img: "Matrix",
     website: "https://jj-dev18.github.io/Netflix-front/.",
     codigo: "https://github.com/JJ-Dev18/Netflix-front",
+    description:
+      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
     tecnologias: ["html", "css"],
     imgId: "matrix",
   },

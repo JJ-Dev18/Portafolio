@@ -1,6 +1,7 @@
 
 import React from "react";
 import {  NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Navbar = ({primer,segundo,tercero}) => {
   //  const { dispatch } = useContext(Context);
@@ -14,13 +15,34 @@ export const Navbar = ({primer,segundo,tercero}) => {
   return (
     <div className="content_nav">
       <NavLink exact to={`/${primer}`}>
-        <button className="button button__uno">{primer}</button>
+        <motion.button
+          className="button button__uno"
+          initial={{ y: "100vh", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 2, delay: 2 }}
+        >
+          {primer}
+        </motion.button>
       </NavLink>
       <NavLink exact to={`/${segundo}`}>
-        <button className="button button__dos">{segundo}</button>
+        <motion.button
+          className="button button__dos"
+          initial={{ y: "100vh", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 2, delay: 2.3 }}
+        >
+          {segundo}
+        </motion.button>
       </NavLink>
       <a href="mailto:juanjomb1_vi@hotmai.com">
-        <button className="button button__tres" >Contact</button>
+        <motion.button
+          className="button button__tres"
+          initial={{ y: "100vh", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 2, delay: 2.5 }}
+        >
+          Contact
+        </motion.button>
       </a>
       {/* <NavLink exact to={`/${tercero}`}>
         <button className="button button__tres">{tercero}</button>
