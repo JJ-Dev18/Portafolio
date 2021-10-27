@@ -3,7 +3,7 @@ import { Context } from "../context/Context";
 import Logo from '../images/logo.png'
 import {projectsData} from '../data/projectsData'
 import { motion } from "framer-motion";
-import { openPortafolio } from '../actions/portfolio';
+
 import { Project } from './Project';
 import { Navbar } from './Navbar';
 
@@ -12,9 +12,9 @@ export const ProjectsScreen = () => {
     const { dispatch } = useContext(Context);
     const [current, setCurrent] = useState(0)
     // const [search, setSearch] = useState("");
-    const handleCerrarPort = () => {
-      dispatch(openPortafolio())
-    }
+    // const handleCerrarPort = () => {
+    //   dispatch(openPortafolio())
+    // }
        const projects = projectsData;
     const filterProjects = ()=> {
 
@@ -48,7 +48,7 @@ export const ProjectsScreen = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeOut", duration: 1.5 }}
       >
-        <img src={Logo} onClick={handleCerrarPort} alt="logo" />
+        <img src={Logo} alt="logo" />
         <h1>Projects</h1>
       </motion.div>
       <div className="grid_projects">

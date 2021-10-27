@@ -1,0 +1,33 @@
+.content_form{
+   @include contents;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   form{
+
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 20px;
+    border: 1px solid $html;
+    border-radius: 20px;
+    background: rgba($color:#fff, $alpha: .6);
+    input{
+      height: 40px;
+      width: 400px;
+      margin: 15px 0;
+      border: 1px solid $html;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    h1{
+      color: white;
+      margin-bottom: 40px;
+    }
+    button{
+      margin-top: 40px !important;
+    }
+   }
+}

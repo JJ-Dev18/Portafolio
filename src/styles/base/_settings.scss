@@ -21,3 +21,13 @@ html,body{
 ::-webkit-scrollbar{
   display: none;
 }
+.input__form{
+ 
+      height: 30px;
+      width: 400px;
+      margin: 15px 0;
+      border: 1px solid $html;
+      border-radius: 10px;
+      padding: 10px;
+    
+}

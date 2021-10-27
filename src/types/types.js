@@ -1,4 +1,4 @@
 export const types = {
-  portOpen: "[Port] Open",
-  logout: "[auth] logout",
+  login: "[Auth] Login",
+  logout: "[Auth] logout",
 };

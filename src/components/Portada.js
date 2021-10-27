@@ -1,12 +1,20 @@
-import React ,{useContext} from 'react'
+import React ,{useContext,useEffect} from 'react'
 import { Context } from '../context/Context';
 import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';
+import { loginAdmin } from '../actions/auth';
 
-export const Portada = () => {
-  const {estado} = useContext(Context)
-  console.log(estado.portafolio)
+export const Portada = ({history}) => {
+  const {estado,dispatch} = useContext(Context)
+  
+    useEffect(() => {
+      let logged = localStorage.getItem("logged");
+      if (logged) {
+             dispatch(loginAdmin());
+             history.push('/admin')
+      }
+    }, []);
   return (
     <div className="content_portada">
       {/* <img
