@@ -19,41 +19,43 @@ export const Login = ({history}) => {
     setpass(target.value);
   };
   const submit = (e)=> {
-    e.preventDefault()
-     fetch("https://apiportafoliojj.herokuapp.com/api/auth/login",{
-       method: 'POST',
-       headers:{
-         'Content-Type': 'application/json'
-       },
-       body: JSON.stringify({
-         correo,
-         password
-        })
-     })
-     .then(resp=> resp.json())
-     .then(data=> {
-       if(data.token){
+    fetch("https://apiportafoliojj.herokuapp.com/api/auth/login",{
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        correo,
+        password
+      })
+    })
+    .then(resp=> resp.json())
+    .then(data=> {
+      if(data.token){
+        localStorage.setItem('logged', true)
          dispatch(loginAdmin())
-         localStorage.setItem('logged', true)
-         history.push('/admin')
-       }
-       else{
-         (data.errors)
-         ? seterror({
-           there : true,
+         //TODO Cambiar variable logged por el token de el login
+         
+         
+        }
+        else{
+          (data.errors)
+          ? seterror({
+            there : true,
            errores : data.errors,           
-         })
-        :
-           seterror({
-             there:false,
-             msg : data.msg
-           })
-       }
-       
-     })
-     .catch(error => console.log(error));
-  }
-  return (
+          })
+          :
+          seterror({
+            there:false,
+            msg : data.msg
+          })
+        }
+        
+      })
+      .catch(error => console.log(error));
+      e.preventDefault()
+    }
+    return (
     <div className="content_form">
       <form onSubmit={submit}>
         <h1>Login</h1>
