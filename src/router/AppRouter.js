@@ -12,10 +12,10 @@ export const AppRouter = () => {
   const [checking, setChecking] = useState(true);
  
   const [isLoggedIn, setIsLoggedIn] = useState(false)
- let log = localStorage.getItem("logged");
+ let token = localStorage.getItem("token");
   useEffect(() => {
    
-    if(log){
+    if(token){
       setIsLoggedIn(true)
       dispatch(loginAdmin())
     }
@@ -23,7 +23,7 @@ export const AppRouter = () => {
       setIsLoggedIn(false)
     }
      setChecking(false); 
-  }, [dispatch, setIsLoggedIn,log]);
+  }, [dispatch, setIsLoggedIn,token]);
   // console.log(isLoggedIn)
       if (checking) {
         return <h1>Mas....</h1>;

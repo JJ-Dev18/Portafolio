@@ -32,11 +32,8 @@ export const Login = ({history}) => {
     .then(resp=> resp.json())
     .then(data=> {
       if(data.token){
-        localStorage.setItem('logged', true)
-         dispatch(loginAdmin())
-         //TODO Cambiar variable logged por el token de el login
-         
-         
+        localStorage.setItem('token', data.token)
+         dispatch(loginAdmin())       
         }
         else{
           (data.errors)

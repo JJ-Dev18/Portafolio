@@ -3,7 +3,7 @@
   left: 0;
   background-color: gray;
   height: 100vh;
-  width: 200px;
+  width: 250px;
   padding: 15px 30px 94px 30px ;
   h1{
     margin-bottom: 30px;
@@ -37,9 +37,9 @@
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 250px;
   // left: 250px;
-  width: 800px;
+  width:calc( 100vw - 250px);
   height: 80vh;
   padding: 20px;
   background: white;
@@ -52,6 +52,9 @@
 .form__project{
   display: flex;
   flex-direction: column;
+  padding: 40px;
+  border: 1px solid gray;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   h1{
     text-align: center;
   }
@@ -60,20 +63,23 @@
 .content__admin__projects{
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 .project__card{
-  width: 200px;
-  height: 100px;
+  width: 150px;
+  height: 80px;
   display: flex;
+  font-size: 10px;
   justify-content: center;
   text-align: center;
   align-items: center;
   margin-right: 10px;
   margin-bottom: 10px;
-  border: 1px solid $css;
+  border: 1px solid $htmlO;
   border-radius: 10px;
   cursor: pointer;
   transition: all 1s ease;
+ box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   &:hover{
     transform: scale(1.1);
   }

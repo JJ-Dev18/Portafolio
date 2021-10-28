@@ -4,6 +4,7 @@ import { loggoutAdmin } from '../actions/auth'
 import { Context } from '../context/Context'
 import { useFetch } from '../hooks/useFetch'
 import { useAlert } from "react-alert";
+import { useForm } from '../hooks/useForm'
 
 
 export const DashBoardAdmin = () => {
@@ -28,24 +29,131 @@ export const ProjectAdmin = (props) => {
 }
 
 
-export const Prueba = () => {
+export const FormCrearProject = () => {
+   const tech = ['html','css','js']
+    const [checkedState, setCheckedState] = useState(
+      new Array(tech.length).fill(false)
+    );
+   const [disabled, setdisabled] = useState(false)
+   const [technologies, settechnologies] = useState([])
+   const token = localStorage.getItem("token");
+  const initialForm = {
+    nombre: '',
+    website: '',
+    codigo: '',
+    descripcion: '',
+  };
+
+  const [formValues, handleInputChange, reset] = useForm(initialForm);
+
+  const { nombre, website, codigo, descripcion } = formValues;
+   const handleInputChecked = (position)=> {
+     const updatedCheckedState = checkedState.map((item, index) =>
+       index === position ? !item : item
+     );
+     
+     let technologiesSelected= []
+     setCheckedState(updatedCheckedState);
+     updatedCheckedState.forEach((element,index) => {
+         if(element){
+           technologiesSelected.push(tech[index])
+         }
+     });
+    settechnologies(technologiesSelected)
+   }
+   const onCreate = (e)=> {
+     e.preventDefault()
+   }
   return (
-    <div>
-      <h1>Prueba</h1>
-    </div>
-  )
+    <>
+      <form className="form__project">
+        <h1>Crear Proyecto</h1>
+        <input
+          type="text"
+          className="input__form"
+          value={nombre}
+          name="nombre"
+          disabled={disabled}
+          onChange={handleInputChange}
+          placeholder="nombre"
+        />
+        <input
+          type="text"
+          className="input__form"
+          value={website}
+          disabled={disabled}
+          onChange={handleInputChange}
+          placeholder="website"
+          name="website"
+        />
+        <input
+          type="text"
+          className="input__form"
+          value={codigo}
+          disabled={disabled}
+          onChange={handleInputChange}
+          placeholder="codigo"
+          name="codigo"
+        />
+        <textarea
+          cols="30"
+          rows="10"
+          name="descripcion"
+          value={descripcion}
+          onChange={handleInputChange}
+          disabled={disabled}
+          placeholder="description"
+        ></textarea>
+
+        <ul className="toppings-list">
+          {tech.map((tec, index) => {
+            return (
+              <li key={index}>
+                <div className="toppings-list-item">
+                  <div className="left-section">
+                    <input
+                      type="checkbox"
+                      id={`custom-checkbox-${index}`}
+                      name={tec}
+                      value={tec}
+                      checked={checkedState[index]}
+                      onChange={() => handleInputChecked(index)}
+                    />
+                    <label htmlFor={`custom-checkbox-${index}`}>{tec}</label>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div style={{ display: "flex" }}>
+          <button
+            onClick={onCreate}
+            className="button button__dos"
+            disabled={disabled}
+          >
+            {" "}
+            Crear{" "}
+          </button>
+        </div>
+      </form>
+    </>
+  );
 }
 
 
-export const ProjectsScreen = (props) => {
+export const ProjectsScreen = ({history}) => {
 
   const { loading, data } = useFetch("https://apiportafoliojj.herokuapp.com/api/projects");
   const [showProject, setshowProject] = useState(false)
   const [infoProject, setinfoProject] = useState('')
   
   const openProject = (project) => {
-    setshowProject(true)
-    setinfoProject(project)
+      history.push({
+        pathname: `/admin/project/${project._id}`,
+        data: project, // your data array of objects
+      });
   }
   if(loading){
    return (
@@ -67,8 +175,8 @@ export const ProjectsScreen = (props) => {
               <h1>{project.nombre}</h1>
             </div>
           ))}
-        {showProject && <i onClick={()=> setshowProject(false)} className="fas fa-hand-point-left cursor_pointer"></i>}
-        {showProject && <FormProjects {...infoProject} />}
+        {/* {showProject && <i onClick={()=> setshowProject(false)} className="fas fa-hand-point-left cursor_pointer"></i>}
+        {showProject && <FormProjects {...infoProject} />} */}
       </div>
     </>
   );
@@ -78,30 +186,36 @@ export const ProjectsScreen = (props) => {
 export const FormProjects = (props) => {
    const alert = useAlert();
   const [disabled, setdisabled] = useState(true)
-  const [nombre, setnombre] = useState(props.nombre)
-  const [website, setWebsite] = useState(props.website)
-  const handleInputName = ({target})=>{
-     setnombre(target.value)
-  }
-  const handleInputWebsite = ({target})=> {
-    setWebsite(target.value)
-  }
+  const { data } = props.location
+  const initialForm = {
+        nombre: data.nombre,
+        website: data.website,
+        codigo: data.codigo,
+        descripcion : data.descripcion
+      };
+
+  const [formValues, handleInputChange, reset] = useForm(initialForm);
+  
+  const { nombre,website,codigo,descripcion} = formValues;
+  const token = localStorage.getItem("token");
+
   const onUpdate = (e)=>{
     e.preventDefault()
     setdisabled(!disabled)
   }
-  const data = { nombre,website }
+  const atras= (e)=>{
+    e.preventDefault()
+    props.history.goBack()
+  }
   const update =  (e)=>{
     e.preventDefault()
-     fetch(`https://apiportafoliojj.herokuapp.com/api/projects/${props._id}`, {
+     fetch(`https://apiportafoliojj.herokuapp.com/api/projects/${data._id}`, {
        method: "PUT",
        headers: {
          "Content-Type": "application/json",
-         //TODO  COLOCAR EL TOKEN EN EL LOCALSTORAGE PARA LA VERIFICACION DE EL LOGIN
-         "x-token":
-           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTYwODhmY2RhMzgwMDcwNGU3Y2NhODMiLCJpYXQiOjE2MzUzNTQwMzcsImV4cCI6MTYzNTM2ODQzN30.KUojhj81aUAV-zv7Fxrmp590DKM0HcE1IjPst4MtXRQ",
+         "x-token": token,
        },
-       body: JSON.stringify(data),
+       body: JSON.stringify(formValues),
      })
        .then((resp) => resp.json())
        .then((respon) => {
@@ -118,27 +232,62 @@ export const FormProjects = (props) => {
           type="text"
           className="input__form"
           value={nombre}
+          name="nombre"
           disabled={disabled}
-          onChange={handleInputName}
-
+          onChange={handleInputChange}
         />
         <input
           type="text"
           className="input__form"
           value={website}
           disabled={disabled}
-          onChange={handleInputWebsite}
+          onChange={handleInputChange}
+          placeholder="website"
+          name="website"
         />
-        <div style={{display:'flex'}}>
-        <button onClick={onUpdate} className={`button ${disabled ? 'button__uno' : 'button__dos'}`}>{disabled ? 'Editar' : 'Cancelar'}</button>
-        {!disabled &&  <button onClick={update} className="button button__tres">Guardar</button>}
+        <input
+          type="text"
+          className="input__form"
+          value={codigo}
+          disabled={disabled}
+          onChange={handleInputChange}
+          placeholder="codigo"
+          name="codigo"
+        />
+        <textarea
+          cols="30"
+          rows="10"
+          name="descripcion"
+          value={descripcion}
+          onChange={handleInputChange}
+          disabled={disabled}
+        ></textarea>
+        <div style={{ display: "flex" }}>
+          <button
+            onClick={onUpdate}
+            className={`button ${disabled ? "button__uno" : "button__dos"}`}
+          >
+            {disabled ? "Editar" : "Cancelar"}
+          </button>
+            <button onClick={disabled ? atras : update} className="button button__tres">
+              {disabled ? "Atras" : "Guardar"}
+            </button>
+          
         </div>
-      
       </form>
     </>
   );
 }
 
+
+
+export const PaginaPortafolio = () => {
+  return (
+    <>
+      <iframe width="100%" height="100%" src="https://jj-dev18.github.io/Portafolio/"></iframe>
+    </>
+  );
+}
 
 export const AdminScreen = ({children,setshowProject,showProject,...props}) => {
   const {estado,dispatch} = useContext(Context)
@@ -153,11 +302,19 @@ export const AdminScreen = ({children,setshowProject,showProject,...props}) => {
       <aside className="drawer">
         <h1>Admin JJ</h1>
         <ul>
-          <li onClick={() => setshowProject(!showProject)}>
-            <i className="fas fa-chalkboard"></i>
-            Projects
-          </li>
-          <Link to="/admin/project">
+          <Link to="/admin/projects">
+            <li>
+              <i className="fas fa-chalkboard"></i>
+              Projects
+            </li>
+          </Link>
+          <Link to="/admin/createproject">
+            <li>
+              <i className="fas fa-plus"></i>
+              Create Project
+            </li>
+          </Link>
+          <Link to="/admin/technologies">
             <li>
               <i className="fas fa-cogs"></i>Technologies
             </li>
