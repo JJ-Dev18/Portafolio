@@ -5,7 +5,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/JournalEntries/",
     codigo: "https://github.com/JJ-Dev18/JournalEntries",
     description:
-      "Aplicacion web para el manejo de un diario , diseno minimalista, inicio de sesion con google, estilos con sass, y Firebase como Backend",
+      "React Application, It's a journal App, using firebase as backend, and Sass to styles.",
 
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },

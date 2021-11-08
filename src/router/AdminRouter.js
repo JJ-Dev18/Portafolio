@@ -1,6 +1,13 @@
 import React,{useState} from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { AdminScreen, DashBoardAdmin, FormCrearProject, FormProjects, PaginaPortafolio, ProjectAdmin, ProjectsScreen, Prueba } from "../components/AdminScreen";
+import { AdminScreen } from "../components/Admin/AdminScreen";
+import { FormCrearProject } from "../components/Admin/FormCrearProject";
+import { FormCrearTech } from "../components/Admin/FormCrearTech";
+import { FormProjects } from "../components/Admin/FormProjects";
+import { ProjectsScreen } from "../components/Admin/ProjectsScreen";
+import { TechScreen } from "../components/Admin/TechScreen";
+import { PaginaPortafolio } from "../components/PaginaPortafolio";
+
 import { ParticleBackground } from "../components/ParticleBackground";
 
 export const AdminRouter = () => {
@@ -29,6 +36,8 @@ export const AdminRouter = () => {
             path="/admin/project/:projectId"
             component={FormProjects}
           />
+          <Route exact path="/admin/createtech" component={FormCrearTech} />
+          <Route exact path="/admin/technologies" component={TechScreen} />
           <Redirect to="/admin" />
         </Switch>
       </div>
