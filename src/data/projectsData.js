@@ -6,7 +6,6 @@ export const projectsData = [
     codigo: "https://github.com/JJ-Dev18/JournalEntries",
     description:
       "React Application, It's a journal App, using firebase as backend, and Sass to styles.",
-
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },
   {
@@ -15,7 +14,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/SweetShop/",
     codigo: "https://github.com/JJ-Dev18/SweetShop",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "E-commerce about sweets  with firebase as backend",
     tecnologias: ["html", "css", "sass", "firebase", "react"],
   },
   {
@@ -24,7 +23,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/carritoJs/",
     codigo: "https://github.com/JJ-Dev18/carritoJs",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "E-commerce about hamburguers with shopcart",
     tecnologias: ["html", "css", "js"],
   },
   {
@@ -33,7 +32,7 @@ export const projectsData = [
     website: "https://chat-javascript-8fe71.web.app/",
     codigo: "https://github.com/JJ-Dev18/chatJavacript",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "Web chat with appearance like whatsapp",
     tecnologias: ["html", "css", "tailwind", "js", "firebase"],
   },
   {
@@ -42,7 +41,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/ReactHeroes/",
     codigo: "https://github.com/JJ-Dev18/ReactHeroes",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "Web app consuming our own api as JSON",
     tecnologias: ["html", "bootstrap", "react"],
   },
   {
@@ -51,7 +50,7 @@ export const projectsData = [
     website: "https://worktic-prueba.herokuapp.com/",
     codigo: "https://github.com/JJ-Dev18/pruebasWorktic",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "Web app for bakery management",
     tecnologias: ["html", "css", "bootstrap", "php", "mysql"],
   },
   {
@@ -60,7 +59,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/React-gif-expert/",
     codigo: "https://github.com/JJ-Dev18/React-gif-expert",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "First example of How consume an external api such as gifs",
     tecnologias: ["html", "css", "react"],
   },
 
@@ -70,7 +69,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/Social-media/",
     codigo: "https://github.com/JJ-Dev18/Social-media",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "Interface about your social media Information (JUST INTERFACE)",
     tecnologias: ["html", "css", "js"],
   },
 
@@ -80,7 +79,7 @@ export const projectsData = [
     website: "https://jj-dev18.github.io/Netflix-front/.",
     codigo: "https://github.com/JJ-Dev18/Netflix-front",
     description:
-      "Aplicacion web para la compra de dulces, diseno minimalista, inicio de sesion con google y facebook, estilos con sass, y Firebase como Backend",
+      "Copy of Mobile Netflix (JUST INTERFACE)",
     tecnologias: ["html", "css"],
     imgId: "matrix",
   },
