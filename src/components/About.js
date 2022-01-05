@@ -47,7 +47,7 @@ export const About = () => {
               GitHub
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/juan-jos%C3%A9-murillo-5b4b201bb/"
+              href="www.linkedin.com/in/jj-dev18"
               target="_blank"
               rel="noreferrer"
               initial={{ x: -100, opacity: 0 }}
@@ -74,13 +74,14 @@ export const About = () => {
             transition={{ ease: "easeOut", duration: 3, delay: 1.3 }}
           >
             {" "}
-            I consider myself a self-taught person with a "Never stop learning"
-            philosophy. I'm passionate about learning everything, although
-            currently I'm a front-developer, I'm learning technologies about
-            backend such as Node, Php, and Java. Even I'm learning English at the
-            same time, More about my studies in my{" "}
+            I'm a Fullstack Junior developer with a "Never stop learning"
+            philosophy. As a self-taught person, I'm passionate about facing new
+            challenges and keeping a continuing learning. Curently, I'm learning
+            technologies such as Java, Php and Typescript. I apply my soft
+            skills when problem solving and I'm motivated by curiosity and
+            enthusiam.
             <a
-              href="https://drive.google.com/file/d/1Ib5Q1k9ZmbYnqDoEEGsnnCXGJZG_qs0o/view?usp=sharing"
+              href="https://drive.google.com/file/d/1I0mbS1yIBQjzhKbQQAdz7CYCZaJoCDyn/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
