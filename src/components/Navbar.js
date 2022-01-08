@@ -1,6 +1,6 @@
 
 import React from "react";
-import {  NavLink } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Navbar = ({primer,segundo,tercero}) => {
@@ -14,7 +14,7 @@ export const Navbar = ({primer,segundo,tercero}) => {
   // }
   return (
     <div className="content_nav">
-      <NavLink exact to={`/${primer}`}>
+      <Link end to={`../${primer}`}>
         <motion.button
           className="button button__uno"
           initial={{ y: "100vh", opacity: 0 }}
@@ -23,8 +23,8 @@ export const Navbar = ({primer,segundo,tercero}) => {
         >
           {primer}
         </motion.button>
-      </NavLink>
-      <NavLink exact to={`/${segundo}`}>
+      </Link>
+      <Link end to={`../${segundo}`}>
         <motion.button
           className="button button__dos"
           initial={{ y: "100vh", opacity: 0 }}
@@ -33,7 +33,7 @@ export const Navbar = ({primer,segundo,tercero}) => {
         >
           {segundo}
         </motion.button>
-      </NavLink>
+      </Link>
       <a href="mailto:juanjomb1_vi@hotmai.com">
         <motion.button
           className="button button__tres"

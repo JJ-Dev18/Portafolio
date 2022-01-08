@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AdminScreen } from "../components/Admin/AdminScreen";
 import { FormCrearProject } from "../components/Admin/FormCrearProject";
 import { FormCrearTech } from "../components/Admin/FormCrearTech";
@@ -7,7 +7,6 @@ import { FormProjects } from "../components/Admin/FormProjects";
 import { ProjectsScreen } from "../components/Admin/ProjectsScreen";
 import { TechScreen } from "../components/Admin/TechScreen";
 import { PaginaPortafolio } from "../components/PaginaPortafolio";
-
 import { ParticleBackground } from "../components/ParticleBackground";
 
 export const AdminRouter = () => {
@@ -23,23 +22,23 @@ export const AdminRouter = () => {
           alignItems: "center",
         }}
       >
-        <Switch>
-          <Route exact path="/admin" component={PaginaPortafolio} />
-          <Route exact path="/admin/projects" component={ProjectsScreen} />
+        <Routes>
+          <Route  path="/admin" element={<PaginaPortafolio/>} />
+          <Route  path="/admin/projects" element={<ProjectsScreen/>} />
           <Route
-            exact
+           
             path="/admin/createproject"
-            component={FormCrearProject}
+            element={<FormCrearProject/>}
           />
           <Route
-            exact
+            
             path="/admin/project/:projectId"
-            component={FormProjects}
+            element={<FormProjects/>}
           />
-          <Route exact path="/admin/createtech" component={FormCrearTech} />
-          <Route exact path="/admin/technologies" component={TechScreen} />
-          <Redirect to="/admin" />
-        </Switch>
+          <Route  path="/admin/createtech" element={<FormCrearTech/>} />
+          <Route  path="/admin/technologies" element={<TechScreen/>} />
+          {/* <Redirect to="/admin" /> */}
+        </Routes>
       </div>
     </AdminScreen>
   );

@@ -1,5 +1,5 @@
 import React, {useContext,useEffect} from 'react'
-import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { loginAdmin } from '../actions/auth';
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
@@ -22,22 +22,22 @@ export const DashboardRouter = () => {
     // }, []);
   
   return (
-    <Router>
+    <>
       <div className="App">
         {/* <Navbar/> */}
-        <Switch>
-          <Route exact path="/public/home" component={Portada} />
-          <Route exact path="/public/projects" component={ProjectsScreen} />
-          <Route exact path="/public/about" component={About} />
-          <Route exact path="/public/contact" component={Contact} />
-          <Route exact path="/public/login" component={Login} />
+        <Routes>
+          <Route path="/home" element={<Portada />} />
+          <Route path="/projects" element={<ProjectsScreen />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
           {/* {logged && <Route exact path="/admin" component={AdminRouter} />} */}
-
-          <Redirect to="/public/home" />
-        </Switch>
+          <Route path="/" element={<Portada />} />
+          {/* <Redirect to="/public/home" /> */}
+        </Routes>
         <ParticleBackground />
         <Copy />
       </div>
-    </Router>
+    </>
   );
 }

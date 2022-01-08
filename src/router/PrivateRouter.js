@@ -1,25 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Route, Redirect } from "react-router-dom";
+import { useContext } from "react";
 
-export const PrivateRouter = ({
-  isLoggedIn,
-  component: Component,
-  ...rest
-}) => {
-  localStorage.setItem("lastPath", rest.location.pathname);
+import { Navigate } from "react-router-dom";
+import { Context } from "../context/Context";
 
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        isLoggedIn ? <Component {...props} /> : <Redirect to="/public" />
-      }
-    />
-  );
-};
+export const PrivateRouter = ({ children }) => {
+  const { estado } = useContext(Context);
 
-PrivateRouter.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
+  return estado.logged ? children : <Navigate to="/public/" />;
 };

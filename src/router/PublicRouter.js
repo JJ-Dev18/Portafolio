@@ -1,20 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 
-import PropTypes from "prop-types";
-import { Route, Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { Context } from "../context/Context";
 
-export const PublicRouter = ({ isLoggedIn, component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        !isLoggedIn ? <Component {...props} /> : <Redirect to="/" />
-      }
-    />
-  );
-};
+export const PublicRouter = ({ children }) => {
+  const { estado } = useContext(Context);
 
-PublicRouter.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
+  return estado.logged ? <Navigate to="/admin" /> : children;
 };

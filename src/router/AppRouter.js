@@ -1,54 +1,59 @@
-import React, {useContext,useEffect,useState} from 'react'
-import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
-import { loginAdmin } from '../actions/auth';
-import { Context } from '../context/Context';
-import { AdminRouter } from './AdminRouter';
-import { DashboardRouter } from './DashboardRouter';
-import { PrivateRouter } from './PrivateRouter';
-import { PublicRouter } from './PublicRouter';
+import React, { useContext, useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { loginAdmin } from "../actions/auth";
+import { Context } from "../context/Context";
+import { AdminRouter } from "./AdminRouter";
+import { DashboardRouter } from "./DashboardRouter";
+import { PrivateRouter } from "./PrivateRouter";
+import { PublicRouter } from "./PublicRouter";
 export const AppRouter = () => {
-  const {estado ,dispatch} = useContext(Context)
-  const {logged} = estado;
+  const { estado, dispatch } = useContext(Context);
+  const { logged } = estado;
   const [checking, setChecking] = useState(true);
- 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
- let token = localStorage.getItem("token");
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  let token = localStorage.getItem("token");
   useEffect(() => {
-   
-    if(token){
-      setIsLoggedIn(true)
-      dispatch(loginAdmin())
+    if (token) {
+      setIsLoggedIn(true);
+      dispatch(loginAdmin());
+    } else {
+      setIsLoggedIn(false);
     }
-    else{
-      setIsLoggedIn(false)
-    }
-     setChecking(false); 
-  }, [dispatch, setIsLoggedIn,token]);
+    setChecking(false);
+  }, [dispatch, setIsLoggedIn, token]);
   // console.log(isLoggedIn)
-      if (checking) {
-        return <h1>Mas....</h1>;
-      }
+  if (checking) {
+    return <h1>Mas....</h1>;
+  }
   return (
-    <Router>
+    <BrowserRouter>
       <div>
-        <Switch>
-          <PublicRouter
-            isLoggedIn={isLoggedIn}
-            path="/public"
-            component={DashboardRouter}
+        <Routes>
+          <Route
+            path="/*"
+            element={
+              <PrivateRouter>
+                <AdminRouter />
+              </PrivateRouter>
+            }
           />
-          <PrivateRouter
-            isLoggedIn={isLoggedIn}
-            path="/"
-            component={AdminRouter}
+          <Route
+            path="/public/*"
+            element={
+              <PublicRouter>
+                <DashboardRouter />
+              </PublicRouter>
+            }
           />
+
           {/* {
             isLoggedIn && <Route path="/admin"  component={AdminScreen}/>
           } */}
 
-          <Redirect to="/home" />
-        </Switch>
+          {/* <Redirect to="/home" /> */}
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
-}
+};
