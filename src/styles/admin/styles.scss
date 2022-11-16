@@ -1,13 +1,13 @@
 .drawer{
   position: absolute;
   left: 0;
-  background-color: gray;
+  background-color: $base;
   height: 100vh;
   width: 250px;
   padding: 15px 30px 94px 30px ;
   h1{
     margin-bottom: 30px;
-    color: $html;
+    color: white;
   }
   ul{
     height: 100%;
@@ -16,14 +16,19 @@
     margin-bottom: auto;
     list-style: none;
     // justify-content: space-around;
-    
+    a{
+      border : none;
+      text-decoration: none;
+    }
     li{
-      color: black;
+      color: white;
       font-size: 20px;
       margin-bottom: 15px;
+      
       cursor: pointer;
       i{
         margin-right: 10px;
+        color: black;
       }
       &:hover{
         color: $js;
@@ -66,7 +71,7 @@
   flex-wrap: wrap;
   margin-top: 20px;
    height: 100vh;
-  border: 1px solid blue;
+  
 }
 .content__card{
 
@@ -78,7 +83,7 @@
   button{
     width: 30px;
     cursor: pointer;
-    border: 1px solid red;
+    // border: 1px solid red;
     border-radius: 10px;
 
   }
@@ -94,7 +99,7 @@
   align-items: center;
   margin-right: 10px;
   margin-bottom: 10px;
-  border: 1px solid $htmlO;
+  // border: 1px solid $htmlO;
   border-radius: 10px;
   cursor: pointer;
   transition: all 1s ease;

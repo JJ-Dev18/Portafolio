@@ -19,7 +19,6 @@ export const FormProjects = () => {
     
   };
 
-  console.log(state)
 
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;

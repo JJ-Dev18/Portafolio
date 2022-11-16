@@ -47,7 +47,7 @@ const ModalProject = ({
               <img src={gif} alt="gif project"/>
               {descripcion && <p> {descripcion}</p>}
             </div>
-            <motion.vid className="info_project_enlaces">
+            <motion.div className="info_project_enlaces">
               <div className="info_project_enlaces">
                 <a
                   className="button button__website"
@@ -68,7 +68,7 @@ const ModalProject = ({
                   Code
                 </a>
               </div>
-            </motion.vid>
+            </motion.div>
           </motion.div>
         </motion.div>
       )}

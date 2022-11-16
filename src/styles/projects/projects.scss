@@ -211,6 +211,7 @@
           .contentModal{
             display: flex;
             margin-top: 15px;
+
             p{
               text-align: left;
               padding: 10px;
@@ -218,7 +219,9 @@
               font-weight: bold;
             }
             img{
-              width: 50%;
+              width: 60%;
+              height: 200px;
+              object-fit: contain;
             }
              
           }

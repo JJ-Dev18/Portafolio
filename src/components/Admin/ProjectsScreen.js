@@ -55,7 +55,20 @@ export const ProjectsScreen = () => {
         {!loading && projects.length === 0 ? (
           <h1>There aren't Projects</h1>
         ) : (
-          projects.map((project) => <Project project={project}  openProject={openProject} />)
+          projects.map((project) => (
+            <div className="content__card" key={project._id}>
+              <div
+                className="project__card"
+                onClick={() => openProject(project)}
+              >
+                <img src={project.img} alt="" width="50%" />
+                <h1>{project.nombre}</h1>
+              </div>
+              <button onClick={() => deleteP(project)}>
+                <i className="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          ))
         )}
       </div>
     </>
