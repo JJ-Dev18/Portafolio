@@ -7,7 +7,7 @@ const projectTec = require.context('../images/svg',true)
 export const Project = ({project}) => {
   const [showModal, setshowModal] = useState(false)
   
-  console.log(showModal)
+
   return (
     <>
       <motion.div
@@ -17,12 +17,12 @@ export const Project = ({project}) => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ ease: "easeOut", duration: 1.5 }}
       >
-        <img
-          src={projectImg(`./${project.img}.PNG`).default}
-          alt="Imagen de proyecto"
-        />
+        <img src={project.img} alt="Imagen de proyecto" />
         <div className="info_project">
-          <button className="cursor_pointer" onClick={(e) => setshowModal(true)}>
+          <button
+            className="cursor_pointer"
+            onClick={(e) => setshowModal(true)}
+          >
             {" "}
             <h1>{project.nombre} </h1>
           </button>
@@ -55,8 +55,8 @@ export const Project = ({project}) => {
         projectName={project.nombre}
         website={project.website}
         codigo={project.codigo}
-        gif={project.img}
-        despcription={project.description}
+        gif={project.gif}
+        descripcion={project.descripcion}
       />
     </>
   );

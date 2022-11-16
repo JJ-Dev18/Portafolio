@@ -88,6 +88,7 @@ export const FormProjects = () => {
           disabled={disabled}
         ></textarea>
         <ul className="">
+         
           {state.tecnologias.map((tec) => (
             <li>
               {

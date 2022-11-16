@@ -17,7 +17,7 @@ export const Portada = ({history}) => {
         alt="imagen en caricatura de juan jose "
         id="caricatura"
       /> */}
-      <Link  to={`./login`}>
+      <Link  to={`../login`}>
         <motion.div
           id="caricatura"
           initial={{ x: -1000, opacity: 0 }}

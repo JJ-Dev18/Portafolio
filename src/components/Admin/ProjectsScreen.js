@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
+import { Project } from '../Project';
 
 
 export const ProjectsScreen = () => {
@@ -51,24 +52,11 @@ export const ProjectsScreen = () => {
   }
   return (
     <>
-      <div className="content__admin__projects">
+      <div className="content_projects">
         {!loading && projects.length == 0 ? (
           <h1>There aren't Projects</h1>
         ) : (
-          projects.map((project) => (
-            <div className="content__card" key={project._id}>
-              <div
-                className="project__card"
-                onClick={() => openProject(project)}
-              >
-                <img src={project.img} alt="" width="50%" />
-                <h1>{project.nombre}</h1>
-              </div>
-              <button onClick={() => deleteP(project)}>
-                <i className="fas fa-trash-alt"></i>
-              </button>
-            </div>
-          ))
+          projects.map((project) => <Project project={project}   onClick={() => openProject(project)}/>)
         )}
       </div>
     </>

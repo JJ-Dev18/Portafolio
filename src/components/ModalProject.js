@@ -17,7 +17,15 @@ const modal = {
     transition : { delay : 0.5 }
   }
 }
-const ModalProject = ({showModal, setShowModal, projectName,gif,despcription,website,codigo}) => {
+const ModalProject = ({
+  showModal,
+  setShowModal,
+  projectName,
+  gif,
+  descripcion,
+  website,
+  codigo,
+}) => {
   return (
     <AnimatePresence exitBeforeEnter>
       {showModal && (
@@ -37,8 +45,8 @@ const ModalProject = ({showModal, setShowModal, projectName,gif,despcription,web
           >
             <h2>{projectName}</h2>
             <div className="contentModal">
-              <img src={modalGif(`./${gif}.gif`).default} />
-              {despcription && <p> {despcription}</p>}
+              <img src={gif} />
+              {descripcion && <p> {descripcion}</p>}
             </div>
             <motion.vid className="info_project_enlaces">
               <div className="info_project_enlaces">
@@ -67,6 +75,6 @@ const ModalProject = ({showModal, setShowModal, projectName,gif,despcription,web
       )}
     </AnimatePresence>
   );
-}
+};
 
 export default ModalProject;
