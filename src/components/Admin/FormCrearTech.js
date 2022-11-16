@@ -20,6 +20,7 @@ export const FormCrearTech = () => {
   };
   const onCreate = (e) => {
     e.preventDefault();
+    setdisabled(true)
     const formData = new FormData();
     formData.append("nombre", nombre);
     formData.append("img", file);
@@ -35,6 +36,7 @@ export const FormCrearTech = () => {
       .then((res) => {
        (res.tech) ?  alert.success("Create success") : alert.error("img or name null")
         reset();
+        setdisabled(false)
         setFile(null);
       });
   };

@@ -51,6 +51,7 @@ export const FormCrearProject = () => {
   console.log(technologies);
   const onCreate = (e) => {
     setLoad(true)
+    setdisabled(true)
     e.preventDefault();
     const formData = new FormData();
     formData.append("nombre", nombre);
@@ -80,6 +81,7 @@ export const FormCrearProject = () => {
         reset();
         setfile(null);
         setLoad(false)
+        setdisabled(false)
       });
   };
   return (

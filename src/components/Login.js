@@ -1,5 +1,4 @@
 import React,{useState,useContext} from 'react'
-import { useFetch } from '../hooks/useFetch'
 import {Context} from '../context/Context'
 import {loginAdmin} from '../actions/auth'
 export const Login = ({history}) => {
@@ -10,7 +9,7 @@ export const Login = ({history}) => {
     errores : [],
     msg:''
   })
-  const {estado,dispatch} = useContext(Context)
+  const {dispatch} = useContext(Context)
   // const { data, loading } = useFetch("https://apiportafoliojj.herokuapp.com/api/auth/login");
   const handleInputCorreo= ({target})=> {
     setCorreo(target.value)

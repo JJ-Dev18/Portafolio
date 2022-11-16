@@ -2,7 +2,6 @@ import React ,{useState} from 'react'
 import { motion } from "framer-motion";
 import ModalProject from './ModalProject';
 
-const projectImg = require.context("../images/projects",true)
 const projectTec = require.context('../images/svg',true)
 export const Project = ({project}) => {
   const [showModal, setshowModal] = useState(false)

@@ -12,7 +12,6 @@ export const ProjectsScreen = () => {
   const { loading, data } = useFetch(
     "https://apiportafoliojj.herokuapp.com/api/projects"
   );
-  const [showProject, setshowProject] = useState(false);
   const [projects, setprojects] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -24,7 +23,7 @@ export const ProjectsScreen = () => {
     if (!loading) {
       setprojects(data.projects);
     }
-  }, [loading]);
+  }, [loading,data]);
   const deleteP = (project) => {
     fetch(
       `https://apiportafoliojj.herokuapp.com/api/projects/${project._id}`,
@@ -53,10 +52,10 @@ export const ProjectsScreen = () => {
   return (
     <>
       <div className="content_projects">
-        {!loading && projects.length == 0 ? (
+        {!loading && projects.length === 0 ? (
           <h1>There aren't Projects</h1>
         ) : (
-          projects.map((project) => <Project project={project}   onClick={() => openProject(project)}/>)
+          projects.map((project) => <Project project={project}  openProject={openProject} />)
         )}
       </div>
     </>

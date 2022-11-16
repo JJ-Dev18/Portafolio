@@ -1,7 +1,6 @@
 import React,{useContext,useEffect,useState} from 'react'
 import { Context } from "../context/Context";
 import Logo from '../images/logo.png'
-import {projectsData} from '../data/projectsData'
 import { motion } from "framer-motion";
 
 import { Project } from './Project';
@@ -13,7 +12,7 @@ export const ProjectsScreen = () => {
   // const handleCerrarPort = () => {
   //   dispatch(openPortafolio())
   // }
-  const { dispatch } = useContext(Context);
+  // const { dispatch } = useContext(Context);
   const [current, setCurrent] = useState(0);
   const [projects, setprojects] = useState([]);
  
@@ -25,7 +24,7 @@ export const ProjectsScreen = () => {
     if(!loading){
       setprojects(data.projects)
     }
-  }, [loading])
+  }, [loading,data])
 
   console.log(projects)
   

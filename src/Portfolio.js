@@ -1,8 +1,7 @@
-import React,{useReducer,useEffect} from 'react'
+import React,{useReducer} from 'react'
 import AlertTemplate from "react-alert-template-basic";
 import {Context } from './context/Context'
 import { reducer } from './context/reducer';
-import { DashboardRouter } from './router/DashboardRouter';
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import { AppRouter } from './router/AppRouter';
 export const Portfolio = ({history}) => {

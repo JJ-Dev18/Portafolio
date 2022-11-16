@@ -1,7 +1,6 @@
 import { motion , AnimatePresence } from 'framer-motion'
 import React  from 'react'
 
-const modalGif = require.context("../images/gifs", true);
 const backdrop = {
   visible : { opacity : 1 },
   hidden : { opacity : 0 }
@@ -45,7 +44,7 @@ const ModalProject = ({
           >
             <h2>{projectName}</h2>
             <div className="contentModal">
-              <img src={gif} />
+              <img src={gif} alt="gif project"/>
               {descripcion && <p> {descripcion}</p>}
             </div>
             <motion.vid className="info_project_enlaces">

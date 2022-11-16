@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import { AdminScreen } from "../components/Admin/AdminScreen";
 import { FormCrearProject } from "../components/Admin/FormCrearProject";
 import { FormCrearTech } from "../components/Admin/FormCrearTech";
@@ -7,7 +7,6 @@ import { FormProjects } from "../components/Admin/FormProjects";
 import { ProjectsScreen } from "../components/Admin/ProjectsScreen";
 import { TechScreen } from "../components/Admin/TechScreen";
 import { PaginaPortafolio } from "../components/PaginaPortafolio";
-import { ParticleBackground } from "../components/ParticleBackground";
 
 export const AdminRouter = () => {
    const [showProject, setshowProject] = useState(true);

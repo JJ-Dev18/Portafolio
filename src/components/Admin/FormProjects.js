@@ -21,7 +21,7 @@ export const FormProjects = () => {
 
   console.log(state)
 
-  const [formValues, handleInputChange, reset] = useForm(initialForm);
+  const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
   const token = localStorage.getItem("token");
 

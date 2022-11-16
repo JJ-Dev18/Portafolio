@@ -8,7 +8,6 @@ export const TechScreen = (props) => {
     "https://apiportafoliojj.herokuapp.com/api/technologies?limite=12"
   );
   const alert = useAlert();
-  const [showTech, setshowTech] = useState(false);
   const token = localStorage.getItem("token");
   const [techs, settechs] = useState([])
   console.log(navigate)
@@ -16,13 +15,13 @@ export const TechScreen = (props) => {
     navigate(`/admin/tech/${tech._id}`, {state:tech});
    
   };
-  console.log(data)
+  
   useEffect(() => {
     if(!loading){
       settechs(data.techs)
     }
    
-  }, [loading])
+  }, [loading,data])
 
   const deleteP = (tech)=> {
     
@@ -53,7 +52,7 @@ export const TechScreen = (props) => {
     <>
       <div className="content__admin__projects">
         {!loading &&
-        (techs.length == 0) 
+        (techs.length === 0) 
         ? <h1>There aren't Technologies</h1>
         :  techs.map((tech) => (
             <div className="content__card" key={tech._id}>

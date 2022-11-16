@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react'
+import React from 'react'
 
 
 export const ProjectAdmin = (props) => {
@@ -13,7 +13,7 @@ export const ProjectAdmin = (props) => {
 export const PaginaPortafolio = () => {
   return (
     <>
-      <iframe width="100%" height="100%" src="https://jj-dev18.github.io/Portafolio/"></iframe>
+      <iframe title='Iframe pagina' width="100%" height="100%" src="https://jj-dev18.github.io/Portafolio/"></iframe>
     </>
   );
 }

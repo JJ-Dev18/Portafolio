@@ -1,13 +1,12 @@
-import React ,{useContext,useEffect} from 'react'
+import React ,{useContext} from 'react'
 import { Context } from '../context/Context';
 import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';
-import { loginAdmin } from '../actions/auth';
 import { Link } from 'react-router-dom';
 
 export const Portada = ({history}) => {
-  const {estado,dispatch} = useContext(Context)
+  // const {estado,dispatch} = useContext(Context)
   
   
   return (
@@ -17,7 +16,7 @@ export const Portada = ({history}) => {
         alt="imagen en caricatura de juan jose "
         id="caricatura"
       /> */}
-      <Link  to={`../login`}>
+      <Link  end="true" to={`../login`}>
         <motion.div
           id="caricatura"
           initial={{ x: -1000, opacity: 0 }}

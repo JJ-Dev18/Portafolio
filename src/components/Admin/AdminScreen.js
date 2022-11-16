@@ -10,7 +10,7 @@ export const AdminScreen = ({
   showProject,
   ...props
 }) => {
-  const { estado, dispatch } = useContext(Context);
+  const {  dispatch } = useContext(Context);
 
   const loggout = () => {
     dispatch(loggoutAdmin());

@@ -14,7 +14,7 @@ export const Navbar = ({primer,segundo,tercero}) => {
   // }
   return (
     <div className="content_nav">
-      <Link end to={`../${primer}`}>
+      <Link  to={`../${primer}`}>
         <motion.button
           className="button button__uno"
           initial={{ y: "100vh", opacity: 0 }}
@@ -24,7 +24,7 @@ export const Navbar = ({primer,segundo,tercero}) => {
           {primer}
         </motion.button>
       </Link>
-      <Link end to={`../${segundo}`}>
+      <Link  to={`../${segundo}`}>
         <motion.button
           className="button button__dos"
           initial={{ y: "100vh", opacity: 0 }}

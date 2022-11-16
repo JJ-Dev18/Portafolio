@@ -1,6 +1,5 @@
-import React, {useContext,useEffect} from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { loginAdmin } from '../actions/auth';
+import React, {useContext} from 'react'
+import {  Routes, Route } from "react-router-dom";
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
 import { Copy } from '../components/Copy';
@@ -12,7 +11,7 @@ import { Context } from '../context/Context';
 
 
 export const DashboardRouter = () => {
-   const { estado, dispatch } = useContext(Context);
+   const { estado } = useContext(Context);
    const { logged } = estado;
     // useEffect(() => {
     //   let logged = localStorage.getItem("logged");
