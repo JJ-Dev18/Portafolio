@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 
 
-export const FormProjects = (props) => {
+export const FormProjects = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(true);
-  const { data } = props.location;
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const { state } = location;
   const initialForm = {
-    nombre: data.nombre,
-    website: data.website,
-    codigo: data.codigo,
-    descripcion: data.descripcion,
+    nombre: state.nombre,
+    website: state.website,
+    codigo: state.codigo,
+    descripcion: state.descripcion,
+    
   };
 
-  const [formValues, handleInputChange, reset] = useForm(initialForm);
+  console.log(state)
 
+  const [formValues, handleInputChange, reset] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
   const token = localStorage.getItem("token");
 
@@ -25,11 +31,11 @@ export const FormProjects = (props) => {
   };
   const atras = (e) => {
     e.preventDefault();
-    props.history.goBack();
+     navigate(-1);
   };
   const update = (e) => {
     e.preventDefault();
-    fetch(`https://apiportafoliojj.herokuapp.com/api/projects/${data._id}`, {
+    fetch(`https://apiportafoliojj.herokuapp.com/api/projects/${state._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -81,6 +87,19 @@ export const FormProjects = (props) => {
           onChange={handleInputChange}
           disabled={disabled}
         ></textarea>
+        <ul className="">
+          {state.tecnologias.map((tec) => (
+            <li>
+              {
+                tec
+              }
+              {/* <img
+                src={projectTec(`./${tec}.svg`).default}
+                alt="tecnologias usadas"
+              /> */}
+            </li>
+          ))}
+        </ul>
         <div style={{ display: "flex" }}>
           <button
             onClick={onUpdate}

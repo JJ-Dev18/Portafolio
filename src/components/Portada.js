@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';
 import { loginAdmin } from '../actions/auth';
+import { Link } from 'react-router-dom';
 
 export const Portada = ({history}) => {
   const {estado,dispatch} = useContext(Context)
@@ -16,12 +17,14 @@ export const Portada = ({history}) => {
         alt="imagen en caricatura de juan jose "
         id="caricatura"
       /> */}
-      <motion.div
-        id="caricatura"
-        initial={{ x: -1000, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ ease: "easeOut", duration: 1.5 }}
-      ></motion.div>
+      <Link  to={`./login`}>
+        <motion.div
+          id="caricatura"
+          initial={{ x: -1000, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 1.5 }}
+        ></motion.div>
+      </Link>
       <motion.div
         className="Typewriter"
         initial={{ x: -1000, opacity: 0 }}
@@ -33,7 +36,6 @@ export const Portada = ({history}) => {
           options={{
             autoStart: true,
             loop: true,
-            
           }}
           onInit={(typewriter) => {
             typewriter

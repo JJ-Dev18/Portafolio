@@ -4,15 +4,15 @@ import { useFetch } from '../../hooks/useFetch';
 import { useForm } from '../../hooks/useForm';
 
 export const FormCrearProject = () => {
+  //Corregir numero estatico de cantidad de tecnologias para el check
   const alert = useAlert();
-  const tech = ["html", "css", "js"];
-  const [checkedState, setCheckedState] = useState(
-    new Array(tech.length).fill(false)
-  );
   const [disabled, setdisabled] = useState(false);
   const { data, loading } = useFetch(
-    "https://apiportafoliojj.herokuapp.com/api/technologies"
-  );
+    "https://apiportafoliojj.herokuapp.com/api/technologies?limite=12"
+    );
+    const [checkedState, setCheckedState] = useState(
+      new Array(15).fill(false)
+    );
   const [file, setfile] = useState(null)
   const [technologies, settechnologies] = useState([]);
   const token = localStorage.getItem("token");
@@ -22,10 +22,11 @@ export const FormCrearProject = () => {
     codigo: "",
     descripcion: "",
   };
-
+ 
   const [formValues, handleInputChange, reset] = useForm(initialForm);
 
   const { nombre, website, codigo, descripcion } = formValues;
+
   const handleInputChecked = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -35,15 +36,17 @@ export const FormCrearProject = () => {
     setCheckedState(updatedCheckedState);
     updatedCheckedState.forEach((element, index) => {
       if (element) {
-        technologiesSelected.push(tech[index]);
+        technologiesSelected.push(data.techs[index]);
       }
     });
     settechnologies(technologiesSelected);
+    
   };
+
   const loadFile = ({target}) => {
    setfile(target.files[0])
   }
-  console.log(data)
+  console.log(technologies);
   const onCreate = (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -51,8 +54,12 @@ export const FormCrearProject = () => {
     formData.append("website", website);
     formData.append("descripcion", descripcion);
     formData.append("codigo", codigo);
-    formData.append("techonologies",technologies)
     formData.append("img", file)
+    technologies.map( technology => { 
+      formData.append("tecnologias", technology.nombre);
+    })
+
+    console.log(formData.values())
      fetch("https://apiportafoliojj.herokuapp.com/api/projects", {
        method: "POST",
        headers: {

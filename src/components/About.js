@@ -47,7 +47,7 @@ export const About = () => {
               GitHub
             </motion.a>
             <motion.a
-              href="www.linkedin.com/in/jj-dev18"
+              href="https://www.linkedin.com/in/jj-dev18/"
               target="_blank"
               rel="noreferrer"
               initial={{ x: -100, opacity: 0 }}

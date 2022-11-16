@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import { useFetch } from "../../hooks/useFetch";
-
-export const TechScreen = ({ history }) => {
+import { useNavigate } from "react-router-dom";
+export const TechScreen = (props) => {
+   const  navigate = useNavigate();
   const { loading, data } = useFetch(
-    "https://apiportafoliojj.herokuapp.com/api/technologies"
+    "https://apiportafoliojj.herokuapp.com/api/technologies?limite=12"
   );
   const alert = useAlert();
   const [showTech, setshowTech] = useState(false);
   const token = localStorage.getItem("token");
   const [techs, settechs] = useState([])
+  console.log(navigate)
   const openTech = (tech) => {
-    history.push({
-      pathname: `/admin/tech/${tech._id}`,
-      data: tech, // your data array of objects
-    });
+    navigate(`/admin/tech/${tech._id}`, {state:tech});
+   
   };
+  console.log(data)
   useEffect(() => {
     if(!loading){
       settechs(data.techs)

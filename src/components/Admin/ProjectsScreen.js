@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { useAlert } from 'react-alert';
+import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 
 
-export const ProjectsScreen = ({ history }) => {
+export const ProjectsScreen = () => {
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const { loading, data } = useFetch(
     "https://apiportafoliojj.herokuapp.com/api/projects"
@@ -14,10 +16,8 @@ export const ProjectsScreen = ({ history }) => {
   const token = localStorage.getItem("token");
 
   const openProject = (project) => {
-    history.push({
-      pathname: `/admin/project/${project._id}`,
-      data: project, // your data array of objects
-    });
+   
+     navigate(`/admin/project/${project._id}}`, { state: project });
   };
   useEffect(() => {
     if (!loading) {
@@ -53,7 +53,7 @@ export const ProjectsScreen = ({ history }) => {
     <>
       <div className="content__admin__projects">
         {!loading && projects.length == 0 ? (
-          <h1>There aren't Technologies</h1>
+          <h1>There aren't Projects</h1>
         ) : (
           projects.map((project) => (
             <div className="content__card" key={project._id}>
