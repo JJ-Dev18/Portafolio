@@ -9,7 +9,7 @@ export const Project = ({project}) => {
 
   return (
     <>
-      <motion.div
+      <div
         className="content_project"
         id={project.imgId}
         initial={{ x: -1000, opacity: 0 }}
@@ -47,7 +47,7 @@ export const Project = ({project}) => {
           </a>
         </div> */}
         </div>
-      </motion.div>
+      </div>
       <ModalProject
         setShowModal={setshowModal}
         showModal={showModal}

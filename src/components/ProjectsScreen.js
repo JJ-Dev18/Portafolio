@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Project } from './Project';
 import { Navbar } from './Navbar';
 import { useFetch } from '../hooks/useFetch';
+import Skeleton from './Skeleton';
 
 export const ProjectsScreen = () => {
   // const [search, setSearch] = useState("");
@@ -50,7 +51,7 @@ export const ProjectsScreen = () => {
 
   return (
     <div className="content_projects">
-      <motion.div
+      <div
         className="content_projects-title"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -58,14 +59,17 @@ export const ProjectsScreen = () => {
       >
         <img src={Logo} alt="logo" />
         <h1>Projects</h1>
-      </motion.div>
+      </div>
       <div className="grid_projects">
-        {!loading &&
+        {!loading ?
           filterProjects().map((project) => (
             <Project key={project.nombre} project={project} />
-          ))}
+          ))
+          : <Skeleton />
+        }
+        {/* <Skeleton /> */}
       </div>
-      <motion.div
+      <div
         className="navigation"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -73,7 +77,7 @@ export const ProjectsScreen = () => {
       >
         <i className="fas fa-arrow-circle-left" onClick={prevPage}></i>
         <i className="fas fa-arrow-circle-right" onClick={nextPage}></i>
-      </motion.div>
+      </div>
       <div className="content_projects_nav">
         <Navbar primer="Home" segundo="About" tercero="Contact" />
       </div>
