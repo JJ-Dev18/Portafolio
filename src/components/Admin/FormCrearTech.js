@@ -20,23 +20,28 @@ export const FormCrearTech = () => {
   };
   const onCreate = (e) => {
     e.preventDefault();
-    setdisabled(true)
+    setdisabled(true);
     const formData = new FormData();
     formData.append("nombre", nombre);
     formData.append("img", file);
 
-    fetch("https://apiportafoliojj.herokuapp.com/api/technologies", {
-      method: "POST",
-      headers: {
-        "x-token": token,
-      },
-      body: formData,
-    })
+    fetch(
+      "https://apiportafolio-production-a123.up.railway.app/api/technologies",
+      {
+        method: "POST",
+        headers: {
+          "x-token": token,
+        },
+        body: formData,
+      }
+    )
       .then((resp) => resp.json())
       .then((res) => {
-       (res.tech) ?  alert.success("Create success") : alert.error("img or name null")
+        res.tech
+          ? alert.success("Create success")
+          : alert.error("img or name null");
         reset();
-        setdisabled(false)
+        setdisabled(false);
         setFile(null);
       });
   };

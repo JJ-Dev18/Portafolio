@@ -1,12 +1,12 @@
-import React,{useContext,useEffect,useState} from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../context/Context";
-import Logo from '../images/logo.png'
+import Logo from "../images/logo.png";
 import { motion } from "framer-motion";
 
-import { Project } from './Project';
-import { Navbar } from './Navbar';
-import { useFetch } from '../hooks/useFetch';
-import Skeleton from './Skeleton';
+import { Project } from "./Project";
+import { Navbar } from "./Navbar";
+import { useFetch } from "../hooks/useFetch";
+import Skeleton from "./Skeleton";
 
 export const ProjectsScreen = () => {
   // const [search, setSearch] = useState("");
@@ -16,19 +16,19 @@ export const ProjectsScreen = () => {
   // const { dispatch } = useContext(Context);
   const [current, setCurrent] = useState(0);
   const [projects, setprojects] = useState([]);
- 
-  const { loading, data } = useFetch(
-    "https://apiportafoliojj.herokuapp.com/api/projects"
-  );
-  
-  useEffect(() => {
-    if(!loading){
-      setprojects(data.projects)
-    }
-  }, [loading,data])
 
-  console.log(projects)
-  
+  const { loading, data } = useFetch(
+    "https://apiportafolio-production-a123.up.railway.app/api/projects"
+  );
+
+  useEffect(() => {
+    if (!loading) {
+      setprojects(data.projects);
+    }
+  }, [loading, data]);
+
+  console.log(projects);
+
   const filterProjects = () => {
     // if (search.length === 0)
     return projects.slice(current, current + 6);
@@ -61,12 +61,13 @@ export const ProjectsScreen = () => {
         <h1>Projects</h1>
       </div>
       <div className="grid_projects">
-        {!loading ?
+        {!loading ? (
           filterProjects().map((project) => (
             <Project key={project.nombre} project={project} />
           ))
-          : <Skeleton />
-        }
+        ) : (
+          <Skeleton />
+        )}
         {/* <Skeleton /> */}
       </div>
       <div
@@ -83,4 +84,4 @@ export const ProjectsScreen = () => {
       </div>
     </div>
   );
-}
+};

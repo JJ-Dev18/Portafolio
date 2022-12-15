@@ -1,32 +1,30 @@
-import React, { useState,useEffect } from 'react';
-import { useAlert } from 'react-alert';
-import { useNavigate } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
-import { Project } from '../Project';
-
+import React, { useState, useEffect } from "react";
+import { useAlert } from "react-alert";
+import { useNavigate } from "react-router-dom";
+import { useFetch } from "../../hooks/useFetch";
+import { Project } from "../Project";
 
 export const ProjectsScreen = () => {
   const alert = useAlert();
   const navigate = useNavigate();
 
   const { loading, data } = useFetch(
-    "https://apiportafoliojj.herokuapp.com/api/projects"
+    "https://apiportafolio-production-a123.up.railway.app/api/projects"
   );
   const [projects, setprojects] = useState([]);
   const token = localStorage.getItem("token");
 
   const openProject = (project) => {
-   
-     navigate(`/admin/project/${project._id}}`, { state: project });
+    navigate(`/admin/project/${project._id}}`, { state: project });
   };
   useEffect(() => {
     if (!loading) {
       setprojects(data.projects);
     }
-  }, [loading,data]);
+  }, [loading, data]);
   const deleteP = (project) => {
     fetch(
-      `https://apiportafoliojj.herokuapp.com/api/projects/${project._id}`,
+      `https://apiportafolio-production-a123.up.railway.app/api/projects/${project._id}`,
       {
         method: "DELETE",
         headers: {

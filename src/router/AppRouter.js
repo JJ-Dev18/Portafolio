@@ -27,7 +27,7 @@ export const AppRouter = () => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetch(
-        `https://apiportafoliojj.herokuapp.com/api/auth/comprobarToken`,
+        `https://apiportafolio-production-a123.up.railway.app/api/auth/comprobarToken`,
         {
           method: "POST",
           headers: {
@@ -38,7 +38,7 @@ export const AppRouter = () => {
       )
         .then((res) => res.json())
         .then((resp) => {
-          console.log(resp)
+          console.log(resp);
           if (resp.expirado) {
             setIsLoggedIn(false);
             localStorage.clear();
@@ -47,7 +47,7 @@ export const AppRouter = () => {
             dispatch(loginAdmin());
           }
         });
-         setChecking(false);
+      setChecking(false);
       // TODO MANTENER LA SESION DE EL ADMINISTRADOR
     }
   }, [dispatch, setIsLoggedIn]);

@@ -8,10 +8,10 @@ export const FormCrearProject = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(false);
   const { data, loading } = useFetch(
-    "https://apiportafoliojj.herokuapp.com/api/technologies?limite=12"
+    "https://apiportafolio-production-a123.up.railway.app/api/technologies?limite=12"
   );
   const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
-  const [ load, setLoad] = useState(false)
+  const [load, setLoad] = useState(false);
   const [file, setfile] = useState(null);
   const [gif, setgif] = useState(null);
   const [technologies, settechnologies] = useState([]);
@@ -50,8 +50,8 @@ export const FormCrearProject = () => {
   };
   console.log(technologies);
   const onCreate = (e) => {
-    setLoad(true)
-    setdisabled(true)
+    setLoad(true);
+    setdisabled(true);
     e.preventDefault();
     const formData = new FormData();
     formData.append("nombre", nombre);
@@ -65,7 +65,7 @@ export const FormCrearProject = () => {
     });
 
     console.log(formData.values());
-    fetch("https://apiportafoliojj.herokuapp.com/api/projects", {
+    fetch("https://apiportafolio-production-a123.up.railway.app/api/projects", {
       method: "POST",
       headers: {
         "x-token": token,
@@ -80,13 +80,13 @@ export const FormCrearProject = () => {
         console.log(res);
         reset();
         setfile(null);
-        setLoad(false)
-        setdisabled(false)
+        setLoad(false);
+        setdisabled(false);
       });
   };
   return (
     <>
-    {load && <h1>Cargando ... </h1>}
+      {load && <h1>Cargando ... </h1>}
       <form className="form__project">
         <h1>Create Project</h1>
         <input

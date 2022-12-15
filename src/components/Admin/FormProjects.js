@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { useAlert } from 'react-alert';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useForm } from '../../hooks/useForm';
-
+import React, { useState } from "react";
+import { useAlert } from "react-alert";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 
 export const FormProjects = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(true);
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const { state } = location;
   const initialForm = {
@@ -16,9 +15,7 @@ export const FormProjects = () => {
     website: state.website,
     codigo: state.codigo,
     descripcion: state.descripcion,
-    
   };
-
 
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
@@ -30,18 +27,21 @@ export const FormProjects = () => {
   };
   const atras = (e) => {
     e.preventDefault();
-     navigate(-1);
+    navigate(-1);
   };
   const update = (e) => {
     e.preventDefault();
-    fetch(`https://apiportafoliojj.herokuapp.com/api/projects/${state._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "x-token": token,
-      },
-      body: JSON.stringify(formValues),
-    })
+    fetch(
+      `https://apiportafolio-production-a123.up.railway.app/api/projects/${state._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-token": token,
+        },
+        body: JSON.stringify(formValues),
+      }
+    )
       .then((resp) => resp.json())
       .then((respon) => {
         setdisabled(true);
@@ -87,12 +87,9 @@ export const FormProjects = () => {
           disabled={disabled}
         ></textarea>
         <ul className="">
-         
           {state.tecnologias.map((tec) => (
             <li>
-              {
-                tec
-              }
+              {tec}
               {/* <img
                 src={projectTec(`./${tec}.svg`).default}
                 alt="tecnologias usadas"
@@ -118,4 +115,3 @@ export const FormProjects = () => {
     </>
   );
 };
-
