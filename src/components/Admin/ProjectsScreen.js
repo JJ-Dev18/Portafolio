@@ -8,9 +8,7 @@ export const ProjectsScreen = () => {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const { loading, data } = useFetch(
-    "https://apiportafolio-production-a123.up.railway.app/api/projects"
-  );
+  const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
   const [projects, setprojects] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -23,15 +21,12 @@ export const ProjectsScreen = () => {
     }
   }, [loading, data]);
   const deleteP = (project) => {
-    fetch(
-      `https://apiportafolio-production-a123.up.railway.app/api/projects/${project._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "x-token": token,
-        },
-      }
-    )
+    fetch(`${process.env.REACT_APP_API_URL}/projects/${project._id}`, {
+      method: "DELETE",
+      headers: {
+        "x-token": token,
+      },
+    })
       .then((resp) => resp.json())
       .then((res) => {
         alert.error("delete success");
@@ -49,7 +44,7 @@ export const ProjectsScreen = () => {
   }
   return (
     <>
-      <div className="content_projects">
+      <div className="content_projects_admin">
         {!loading && projects.length === 0 ? (
           <h1>There aren't Projects</h1>
         ) : (

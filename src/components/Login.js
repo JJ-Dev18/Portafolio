@@ -10,7 +10,7 @@ export const Login = ({ history }) => {
     msg: "",
   });
   const { dispatch } = useContext(Context);
-  // const { data, loading } = useFetch("https://apiportafolio-production-a123.up.railway.app/api/auth/login");
+  // const { data, loading } = useFetch("process.env.REACT_APP_API_URL//auth/login");
   const handleInputCorreo = ({ target }) => {
     setCorreo(target.value);
   };
@@ -18,19 +18,16 @@ export const Login = ({ history }) => {
     setpass(target.value);
   };
   const submit = (e) => {
-    fetch(
-      "https://apiportafolio-production-a123.up.railway.app/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          correo,
-          password,
-        }),
-      }
-    )
+    fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        correo,
+        password,
+      }),
+    })
       .then((resp) => resp.json())
       .then((data) => {
         if (data.token) {

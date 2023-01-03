@@ -78,6 +78,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  margin-right: 5px;
   // border: 1px solid red;
  
   button{
@@ -87,6 +89,10 @@
     border-radius: 10px;
 
   }
+}
+.content_projects_admin{
+  display: flex;
+  flex-wrap: wrap;
 }
 .project__card{
   width: 150px;

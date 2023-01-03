@@ -31,17 +31,14 @@ export const FormProjects = () => {
   };
   const update = (e) => {
     e.preventDefault();
-    fetch(
-      `https://apiportafolio-production-a123.up.railway.app/api/projects/${state._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "x-token": token,
-        },
-        body: JSON.stringify(formValues),
-      }
-    )
+    fetch(`${process.env.REACT_APP_API_URL}/projects/${state._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": token,
+      },
+      body: JSON.stringify(formValues),
+    })
       .then((resp) => resp.json())
       .then((respon) => {
         setdisabled(true);

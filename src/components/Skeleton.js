@@ -56,5 +56,5 @@ const Skeleton = ({numProyectos = 6})=>{
 export default Skeleton;
 
 Skeleton.propTypes = {
- numProyectos : PropTypes.number.isRequired
+ numProyectos : PropTypes.number
 };

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const TechScreen = (props) => {
   const navigate = useNavigate();
   const { loading, data } = useFetch(
-    "https://apiportafolio-production-a123.up.railway.app/api/technologies?limite=12"
+    `${process.env.REACT_APP_API_URL}/technologies?limite=12`
   );
   const alert = useAlert();
   const token = localStorage.getItem("token");
@@ -22,15 +22,12 @@ export const TechScreen = (props) => {
   }, [loading, data]);
 
   const deleteP = (tech) => {
-    fetch(
-      `https://apiportafolio-production-a123.up.railway.app/api/technologies/${tech._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "x-token": token,
-        },
-      }
-    )
+    fetch(`${process.env.REACT_APP_API_URL}/technologies/${tech._id}`, {
+      method: "DELETE",
+      headers: {
+        "x-token": token,
+      },
+    })
       .then((resp) => resp.json())
       .then((res) => {
         alert.error(res.msg);
@@ -49,7 +46,7 @@ export const TechScreen = (props) => {
 
   return (
     <>
-      <div className="content__admin__projects">
+      <div className="content_projects_admin">
         {!loading && techs.length === 0 ? (
           <h1>There aren't Technologies</h1>
         ) : (

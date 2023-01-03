@@ -8,7 +8,7 @@ export const FormCrearProject = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(false);
   const { data, loading } = useFetch(
-    "https://apiportafolio-production-a123.up.railway.app/api/technologies?limite=12"
+    `${process.env.REACT_APP_API_URL}/technologies?limite=12`
   );
   const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
   const [load, setLoad] = useState(false);
@@ -65,7 +65,7 @@ export const FormCrearProject = () => {
     });
 
     console.log(formData.values());
-    fetch("https://apiportafolio-production-a123.up.railway.app/api/projects", {
+    fetch(`${process.env.REACT_APP_API_URL}/projects`, {
       method: "POST",
       headers: {
         "x-token": token,

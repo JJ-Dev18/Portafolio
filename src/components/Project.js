@@ -27,8 +27,8 @@ export const Project = ({project}) => {
           </button>
 
           <ul className="tecnologias">
-            {project.tecnologias.map((tec) => (
-              <li>
+            {project.tecnologias.map((tec,index) => (
+              <li key={index}>
                 <img
                   src={projectTec(`./${tec}.svg`).default}
                   alt="tecnologias usadas"

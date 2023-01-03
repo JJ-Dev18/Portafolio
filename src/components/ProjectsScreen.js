@@ -7,6 +7,7 @@ import { Project } from "./Project";
 import { Navbar } from "./Navbar";
 import { useFetch } from "../hooks/useFetch";
 import Skeleton from "./Skeleton";
+import { Link } from "react-router-dom";
 
 export const ProjectsScreen = () => {
   // const [search, setSearch] = useState("");
@@ -17,9 +18,7 @@ export const ProjectsScreen = () => {
   const [current, setCurrent] = useState(0);
   const [projects, setprojects] = useState([]);
 
-  const { loading, data } = useFetch(
-    "https://apiportafolio-production-a123.up.railway.app/api/projects"
-  );
+  const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
 
   useEffect(() => {
     if (!loading) {
@@ -57,7 +56,9 @@ export const ProjectsScreen = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeOut", duration: 1.5 }}
       >
+          <Link  end="true" to={`../home`}>
         <img src={Logo} alt="logo" />
+          </Link>
         <h1>Projects</h1>
       </div>
       <div className="grid_projects">

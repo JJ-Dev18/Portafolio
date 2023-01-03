@@ -26,16 +26,13 @@ export const AppRouter = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch(
-        `https://apiportafolio-production-a123.up.railway.app/api/auth/comprobarToken`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token: localStorage.getItem("token") }),
-        }
-      )
+      fetch(`${process.env.REACT_APP_API_URL}/auth/comprobarToken`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: localStorage.getItem("token") }),
+      })
         .then((res) => res.json())
         .then((resp) => {
           console.log(resp);
