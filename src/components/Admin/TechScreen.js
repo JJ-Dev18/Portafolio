@@ -46,6 +46,7 @@ export const TechScreen = (props) => {
 
   return (
     <>
+        <h1>Technologies</h1>
       <div className="content_projects_admin">
         {!loading && techs.length === 0 ? (
           <h1>There aren't Technologies</h1>
