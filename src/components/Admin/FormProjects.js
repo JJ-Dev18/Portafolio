@@ -1,17 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useAlert } from "react-alert";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { useForm } from "../../hooks/useForm";
 
 export const FormProjects = () => {
-  const alert = useAlert();
-  const [disabled, setdisabled] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  const { data, loading } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies`
-  );
   const { state } = location;
   const initialForm = {
     nombre: state.nombre,
@@ -19,27 +14,52 @@ export const FormProjects = () => {
     codigo: state.codigo,
     descripcion: state.descripcion,
   };
-  const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
-
-  const [technologies, settechnologies] = useState([]);
+  const alert = useAlert();
+  const [disabled, setdisabled] = useState(true);
+  const [projectTecnologies, setProjectTecnologies] = useState([]);
+  const [technologiesSelected, setTechnologiesSelected] = useState([]);
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
   const token = localStorage.getItem("token");
   
+  const { data, loading } = useFetch(
+    `${process.env.REACT_APP_API_URL}/technologies`
+  );
+
+  const loadingProjectTechnologies = useCallback(() => {
+    let projectTecnologies = [];
+    let encontrado = false;
+    for (let index = 0; index < data?.techs.length; index++) {
+      for (let j = 0; j < state.tecnologias.length; j++) {
+        if (data.techs[index]._id === state.tecnologias[j]._id) {
+          projectTecnologies.push({ ...data.techs[index], checked: true });
+          encontrado = true;
+          break;
+        }
+      }
+      if (!encontrado) {
+        projectTecnologies.push({ ...data.techs[index], checked: false });
+      } else encontrado = false;
+    }
+    setProjectTecnologies(projectTecnologies);
+  }, [loading]);
+
+  useEffect(() => {
+    if (!loading) {
+      loadingProjectTechnologies();
+    }
+  }, [loading]);
+
   const handleInputChecked = (position) => {
-    console.log(position,"position")
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
+    const updatedTechnologies = projectTecnologies.map((item, index) =>
+      item._id === position ? { ...item, checked: !item.checked } : item
     );
 
-    let technologiesSelected = [];
-    setCheckedState(updatedCheckedState);
-    updatedCheckedState.forEach((element, index) => {
-      if (element) {
-        technologiesSelected.push(state.tecnologias[index]);
-      }
-    });
-    settechnologies(technologiesSelected);
+    const technologiesSelected = updatedTechnologies.filter(
+      (tech) => tech.checked === true
+    );
+    setProjectTecnologies(updatedTechnologies);
+    setTechnologiesSelected(technologiesSelected);
   };
   const onUpdate = (e) => {
     e.preventDefault();
@@ -57,7 +77,7 @@ export const FormProjects = () => {
         "Content-Type": "application/json",
         "x-token": token,
       },
-      body: JSON.stringify(formValues),
+      body: JSON.stringify({...formValues,tecnologias : technologiesSelected}),
     })
       .then((resp) => resp.json())
       .then((respon) => {
@@ -104,26 +124,32 @@ export const FormProjects = () => {
           disabled={disabled}
         ></textarea>
         <ul className="toppings-list">
-          {state.tecnologias.map((tec) => (
-            <li key={tec._id}>
-              <div className="toppings-list-item">
-                <div className="left-section">
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${tec._id}`}
-                    name={tec.nombre}
-                    value={tec.nombre}
-                    checked={checkedState[tec._id]}
-                    onChange={() => handleInputChecked(tec._id)}
-                  />
-                  <label htmlFor={`custom-checkbox-${tec._id}`}>
-                    {tec.nombre}
-                  </label>
-                  <img id="tech_used" src={tec.img} alt="tecnologias usadas" />
+          {loading ? <h4>Loading Technologies ....</h4>
+            :  projectTecnologies.map((tec) => (
+              <li key={tec._id}>
+                <div className="toppings-list-item">
+                  <div className="left-section">
+                    <input
+                      disabled={disabled}
+                      type="checkbox"
+                      id={`custom-checkbox-${tec._id}`}
+                      name={tec.nombre}
+                      value={tec.nombre}
+                      checked={tec.checked}
+                      onChange={() => handleInputChecked(tec._id)}
+                    />
+                    <label htmlFor={`custom-checkbox-${tec._id}`}>
+                      {tec.nombre}
+                    </label>
+                    <img
+                      id="tech_used"
+                      src={tec.img}
+                      alt="tecnologias usadas"
+                    />
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
         <div style={{ display: "flex" }}>
           <button

@@ -39,7 +39,7 @@ export const TechScreen = (props) => {
   if (loading) {
     return (
       <>
-        <h1>Cargando...</h1>
+        <h1>Loading ...</h1>
       </>
     );
   }

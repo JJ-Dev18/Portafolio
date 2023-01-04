@@ -38,7 +38,7 @@ export const ProjectsScreen = () => {
   if (loading) {
     return (
       <>
-        <h1>Cargando...</h1>
+        <h1>Loading ...</h1>
       </>
     );
   }
@@ -54,6 +54,13 @@ export const ProjectsScreen = () => {
                 className="project__card"
                 onClick={() => openProject(project)}
               >
+                <ul className="tecnologias">
+                  {project.tecnologias.map((tec, index) => (
+                    <li key={tec._id}>
+                      <img src={tec.img} alt="tecnologias usadas" />
+                    </li>
+                  ))}
+                </ul>
                 <img src={project.img} alt="" width="50%" />
                 <h1>{project.nombre}</h1>
               </div>
