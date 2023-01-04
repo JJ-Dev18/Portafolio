@@ -40,7 +40,7 @@ export const FormCrearTech = () => {
         reset();
         setdisabled(false);
         setFile(null);
-      });
+      }).catch(e => console.log(e));
   };
 
   return (

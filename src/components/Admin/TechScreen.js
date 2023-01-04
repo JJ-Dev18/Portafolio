@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const TechScreen = (props) => {
   const navigate = useNavigate();
   const { loading, data } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies?limite=12`
+    `${process.env.REACT_APP_API_URL}/technologies`
   );
   const alert = useAlert();
   const token = localStorage.getItem("token");

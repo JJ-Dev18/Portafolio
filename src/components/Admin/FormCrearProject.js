@@ -8,7 +8,7 @@ export const FormCrearProject = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(false);
   const { data, loading } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies?limite=12`
+    `${process.env.REACT_APP_API_URL}/technologies`
   );
   const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
   const [load, setLoad] = useState(false);
@@ -61,7 +61,7 @@ export const FormCrearProject = () => {
     formData.append("img", file);
     formData.append("gif", gif);
     technologies.map((technology, index) => {
-      formData.append(`tecnologias`, technology.nombre);
+      formData.append(`tecnologias`, technology._id);
     });
 
     console.log(formData.values());
@@ -156,8 +156,13 @@ export const FormCrearProject = () => {
                         onChange={() => handleInputChecked(index)}
                       />
                       <label htmlFor={`custom-checkbox-${index}`}>
-                        {tec.nombre}
+                           {  tec.nombre}
                       </label>
+                      <img
+                        id="tech_used"
+                        src={tec.img}
+                        alt="tecnologias usadas"
+                      />
                     </div>
                   </div>
                 </li>

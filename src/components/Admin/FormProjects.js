@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useFetch } from "../../hooks/useFetch";
 import { useForm } from "../../hooks/useForm";
 
 export const FormProjects = () => {
@@ -8,7 +9,9 @@ export const FormProjects = () => {
   const [disabled, setdisabled] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { data, loading } = useFetch(
+    `${process.env.REACT_APP_API_URL}/technologies`
+  );
   const { state } = location;
   const initialForm = {
     nombre: state.nombre,
@@ -16,11 +19,28 @@ export const FormProjects = () => {
     codigo: state.codigo,
     descripcion: state.descripcion,
   };
+  const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
 
+  const [technologies, settechnologies] = useState([]);
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
   const token = localStorage.getItem("token");
+  
+  const handleInputChecked = (position) => {
+    console.log(position,"position")
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
 
+    let technologiesSelected = [];
+    setCheckedState(updatedCheckedState);
+    updatedCheckedState.forEach((element, index) => {
+      if (element) {
+        technologiesSelected.push(state.tecnologias[index]);
+      }
+    });
+    settechnologies(technologiesSelected);
+  };
   const onUpdate = (e) => {
     e.preventDefault();
     setdisabled(!disabled);
@@ -83,14 +103,25 @@ export const FormProjects = () => {
           onChange={handleInputChange}
           disabled={disabled}
         ></textarea>
-        <ul className="">
+        <ul className="toppings-list">
           {state.tecnologias.map((tec) => (
-            <li>
-              {tec}
-              {/* <img
-                src={projectTec(`./${tec}.svg`).default}
-                alt="tecnologias usadas"
-              /> */}
+            <li key={tec._id}>
+              <div className="toppings-list-item">
+                <div className="left-section">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${tec._id}`}
+                    name={tec.nombre}
+                    value={tec.nombre}
+                    checked={checkedState[tec._id]}
+                    onChange={() => handleInputChecked(tec._id)}
+                  />
+                  <label htmlFor={`custom-checkbox-${tec._id}`}>
+                    {tec.nombre}
+                  </label>
+                  <img id="tech_used" src={tec.img} alt="tecnologias usadas" />
+                </div>
+              </div>
             </li>
           ))}
         </ul>

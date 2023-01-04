@@ -6,7 +6,7 @@ const projectTec = require.context('../images/svg',true)
 export const Project = ({project}) => {
   const [showModal, setshowModal] = useState(false)
   
-
+  console.log(project)
   return (
     <>
       <div
@@ -28,9 +28,9 @@ export const Project = ({project}) => {
 
           <ul className="tecnologias">
             {project.tecnologias.map((tec,index) => (
-              <li key={index}>
+              <li key={tec._id}>
                 <img
-                  src={projectTec(`./${tec}.svg`).default}
+                  src={tec.img}
                   alt="tecnologias usadas"
                 />
               </li>

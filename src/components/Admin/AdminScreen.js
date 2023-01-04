@@ -18,7 +18,7 @@ export const AdminScreen = ({
     console.log('loggour')
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex" }} id="admin">
       <aside className="drawer">
         <h1>Admin JJ</h1>
         <ul>

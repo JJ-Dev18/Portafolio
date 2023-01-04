@@ -1,3 +1,7 @@
+#admin{
+  font-family: 'Arvo', serif;
+
+}
 .drawer{
   position: absolute;
   left: 0;
@@ -10,10 +14,11 @@
     color: white;
   }
   ul{
-    height: 100%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     margin-bottom: auto;
+    padding-bottom: 20px;
     list-style: none;
     // justify-content: space-around;
     a{
@@ -22,7 +27,7 @@
     }
     li{
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       margin-bottom: 15px;
       
       cursor: pointer;
@@ -36,6 +41,10 @@
     }
   }
 }
+#tech_used{
+  width: 20px;
+  margin-left: 10px;
+}
 .main__admin{
   // margin: auto;
   position: absolute;
@@ -45,7 +54,7 @@
   left: 250px;
   // left: 250px;
   width:calc( 100vw - 250px);
-  height: 80vh;
+  height: 100vh;
   padding: 20px;
   background: white;
   display: flex;
@@ -64,6 +73,9 @@
   h1{
     text-align: center;
   }
+  label{
+    margin-left: 5px;
+  }
 
 }
 .content__admin__projects{
@@ -80,6 +92,7 @@
   align-items: center;
   margin-top: 20px;
   margin-right: 5px;
+  
   // border: 1px solid red;
  
   button{
@@ -93,10 +106,13 @@
 .content_projects_admin{
   display: flex;
   flex-wrap: wrap;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  overflow-y: scroll;
+  
 }
 .project__card{
-  width: 150px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   font-size: 10px;

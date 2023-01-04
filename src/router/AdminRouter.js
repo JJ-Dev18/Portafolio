@@ -19,6 +19,7 @@ export const AdminRouter = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          overflow:'scroll' 
         }}
       >
         <Routes>
