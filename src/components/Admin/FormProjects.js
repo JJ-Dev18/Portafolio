@@ -20,8 +20,14 @@ export const FormProjects = () => {
   const [technologiesSelected, setTechnologiesSelected] = useState([]);
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
+  const [img, setimg] = useState(state.img)
+  const [file, setfile] = useState({})
+  const [gif, setGif] = useState(state.gif)
+  const [newImage, setNewImage] = useState("")
+  const [newGif,setNewGif] = useState("");
+
   const token = localStorage.getItem("token");
-  
+  console.log(file)
   const { data, loading } = useFetch(
     `${process.env.REACT_APP_API_URL}/technologies`
   );
@@ -61,27 +67,58 @@ export const FormProjects = () => {
     setProjectTecnologies(updatedTechnologies);
     setTechnologiesSelected(technologiesSelected);
   };
+
+  const loadImg = (e) => {
+    e.preventDefault();
+    setfile({...file, img : e.target.files[0]});
+    setimg(URL.createObjectURL(e.target.files[0]));
+  };
+  const loadGif = (e) => {
+    e.preventDefault();
+    setfile({...file,gif : e.target.files[0]});
+    setGif(URL.createObjectURL(e.target.files[0]));
+  };
   const onUpdate = (e) => {
     e.preventDefault();
     setdisabled(!disabled);
+    
   };
   const atras = (e) => {
     e.preventDefault();
     navigate(-1);
   };
   const update = (e) => {
+    setdisabled(true)
     e.preventDefault();
+     const formData = new FormData();
+     formData.append("nombre", nombre);
+     formData.append("website", website);
+     formData.append("descripcion", descripcion);
+     formData.append("codigo", codigo);
+     formData.append("oldImg", state.img);
+     formData.append("oldGif", state.gif);
+     if(file.img){
+       formData.append("img", file.img);
+       setfile({})
+     }
+     if(file.gif){
+       formData.append("gif", file.gif);
+       setfile({})
+     }
+
+     technologiesSelected.map((technology, index) => {
+       formData.append(`tecnologias`, technology._id);
+     });
+
     fetch(`${process.env.REACT_APP_API_URL}/projects/${state._id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
         "x-token": token,
       },
-      body: JSON.stringify({...formValues,tecnologias : technologiesSelected}),
+      body: formData,
     })
       .then((resp) => resp.json())
       .then((respon) => {
-        setdisabled(true);
         alert.success(respon.msg);
       })
       .catch((err) => alert.error(err));
@@ -89,6 +126,11 @@ export const FormProjects = () => {
   return (
     <>
       <form className="form__project">
+        <h1>Edit Project</h1>
+        <img src={img} alt="img project" id="project_img" />
+        {!disabled &&
+          <input type="file" name="img" onChange={loadImg} />
+        }
         <input
           type="text"
           className="input__form"
@@ -123,12 +165,20 @@ export const FormProjects = () => {
           onChange={handleInputChange}
           disabled={disabled}
         ></textarea>
+
         <ul className="toppings-list">
-          {loading ? <h4>Loading Technologies ....</h4>
-            :  projectTecnologies.map((tec) => (
+          {loading ? (
+            <h4>Loading Technologies ....</h4>
+          ) : (
+            projectTecnologies.map((tec) => (
               <li key={tec._id}>
                 <div className="toppings-list-item">
                   <div className="left-section">
+                    <img
+                      id="tech_used"
+                      src={tec.img}
+                      alt="tecnologias usadas"
+                    />
                     <input
                       disabled={disabled}
                       type="checkbox"
@@ -141,16 +191,16 @@ export const FormProjects = () => {
                     <label htmlFor={`custom-checkbox-${tec._id}`}>
                       {tec.nombre}
                     </label>
-                    <img
-                      id="tech_used"
-                      src={tec.img}
-                      alt="tecnologias usadas"
-                    />
                   </div>
                 </div>
               </li>
-            ))}
+            ))
+          )}
         </ul>
+        <img src={gif} alt="gif project" id="project_img" />
+        {!disabled &&
+          <input type="file" name="gif" onChange={loadGif} />
+        }
         <div style={{ display: "flex" }}>
           <button
             onClick={onUpdate}

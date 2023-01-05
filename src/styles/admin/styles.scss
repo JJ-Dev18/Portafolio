@@ -41,9 +41,19 @@
     }
   }
 }
+
+#tech_img{
+  width: 60px;
+  text-align: center;
+}
+
 #tech_used{
   width: 20px;
   margin-left: 10px;
+}
+#project_img{
+  width: 300px;
+  margin-bottom: 10px;
 }
 .main__admin{
   // margin: auto;
@@ -67,6 +77,7 @@
 .form__project{
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 40px;
   border: 1px solid gray;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -75,6 +86,15 @@
   }
   label{
     margin-left: 5px;
+  }
+  textarea{
+    width: 100%;
+    height: 70px;
+  }
+input[type="file"]{
+   
+  width: 100%;
+  
   }
 
 }
@@ -135,9 +155,13 @@
   list-style: none;
   margin: 20px 0;
   display: flex;
-  width: 100%;
-  height: 300px;
-  justify-content: space-around;
+    width: 400px;
+
+  justify-content: space-between;
+  align-items: center;
   height: auto;
-  flex-direction: column;
+  flex-wrap: wrap;
+  li{
+    width: 200px;
+  }
 }

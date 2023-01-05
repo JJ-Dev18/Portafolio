@@ -64,7 +64,7 @@ export const FormCrearProject = () => {
       formData.append(`tecnologias`, technology._id);
     });
 
-    console.log(formData.values());
+    
     fetch(`${process.env.REACT_APP_API_URL}/projects`, {
       method: "POST",
       headers: {
