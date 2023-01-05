@@ -41,7 +41,6 @@ export const FormTech = () => {
       setloadImage(!loadImage)
     }
   };
-
   const update = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -62,7 +61,7 @@ export const FormTech = () => {
         setdisabled(true);
         alert.success(res.msg);
         reset();
-        setFile(null);
+        setFile("");
       })
       .catch((e) => console.log(e));
   };

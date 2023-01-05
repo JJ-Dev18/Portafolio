@@ -21,10 +21,8 @@ export const FormProjects = () => {
   const [formValues, handleInputChange] = useForm(initialForm);
   const { nombre, website, codigo, descripcion } = formValues;
   const [img, setimg] = useState(state.img)
-  const [file, setfile] = useState({})
   const [gif, setGif] = useState(state.gif)
-  const [newImage, setNewImage] = useState("")
-  const [newGif,setNewGif] = useState("");
+  const [file, setfile] = useState({oldImg : state.img, oldGif: state.gif})
 
   const token = localStorage.getItem("token");
   console.log(file)
@@ -83,6 +81,7 @@ export const FormProjects = () => {
     setdisabled(!disabled);
     
   };
+  console.log(state)
   const atras = (e) => {
     e.preventDefault();
     navigate(-1);
@@ -95,15 +94,13 @@ export const FormProjects = () => {
      formData.append("website", website);
      formData.append("descripcion", descripcion);
      formData.append("codigo", codigo);
-     formData.append("oldImg", state.img);
-     formData.append("oldGif", state.gif);
+     formData.append("oldImg", file.oldImg);
+     formData.append("oldGif", file.oldGif);
      if(file.img){
-       formData.append("img", file.img);
-       setfile({})
+       formData.append("img", file.img); 
      }
      if(file.gif){
        formData.append("gif", file.gif);
-       setfile({})
      }
 
      technologiesSelected.map((technology, index) => {
@@ -120,6 +117,8 @@ export const FormProjects = () => {
       .then((resp) => resp.json())
       .then((respon) => {
         alert.success(respon.msg);
+        console.log(respon)
+        setfile({oldImg : respon.project.img , oldGif : respon.project.gif})
       })
       .catch((err) => alert.error(err));
   };

@@ -141,8 +141,8 @@ export const FormCrearProject = () => {
         <label>Seleccionar Gif</label>
 
         <ul className="toppings-list">
-          {!loading &&
-            data.techs.map((tec, index) => {
+          {loading ? <h4>Loading Technologies....</h4>
+            : data.techs.map((tec, index) => {
               return (
                 <li key={tec._id}>
                   <div className="toppings-list-item">
