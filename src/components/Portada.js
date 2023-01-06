@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const Portada = ({history}) => {
   // const {estado,dispatch} = useContext(Context)
-  
+  console.log(process.env.REACT_APP_API_URL);
   
   return (
     <div className="content_portada">
