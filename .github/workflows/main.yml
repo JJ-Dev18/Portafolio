@@ -1,31 +1,26 @@
-name: Deploy with ENVIRONMENT
-
+name: Deploy to GitHub Pages
 on:
   push:
     branches:
       - main
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    
     - name: Checkout
       uses: actions/checkout@v1
 
     - name: Build
       run: |
-        npm install --force
+        npm install
         npm run-script build
       env:
-        REACT_APP_API_URL: https://apiportafolio-production-a123.up.railway.app/api
-        CI : false
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+        CI: false
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
         BRANCH: gh-pages
         FOLDER: build
