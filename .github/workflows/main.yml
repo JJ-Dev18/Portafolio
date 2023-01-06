@@ -20,7 +20,7 @@ jobs:
         npm install --force
         npm run-script build
       env:
-        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+        REACT_APP_API_URL: https://apiportafolio-production-a123.up.railway.app/api
         CI : false
 
     - name: Deploy
