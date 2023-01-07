@@ -36,6 +36,24 @@ export const ProjectsScreen = () => {
     // const filtered = projects.filter((project) => project.name.includes(search));
     // return filtered.slice(currentPage, currentPage + 5);
   };
+
+  // const filterBy = (name)=>{
+  //   switch (filter) {
+  //     case "name":
+  //       return projects.filter((pro) => pro.name == name);
+  //       break;
+  //     case "technology":
+  //       return projects.filter((pro) => pro.name == name);
+  //       break;
+  //     case "complexity":
+  //       break;
+  //     default:
+  //       break;
+  //   }
+
+  
+
+  // }
   const nextPage = () => {
     if (projects.length > current + cantProjects){
       setCurrent(current + cantProjects);
