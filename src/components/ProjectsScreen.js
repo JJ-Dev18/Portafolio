@@ -18,6 +18,7 @@ export const ProjectsScreen = () => {
   const [current, setCurrent] = useState(0);
   const [projects, setprojects] = useState([]);
   const [cantProjects,setCantProjects] = useState(9)
+  const [filter, setfilter] = useState('name')
   const [page, setPage] = useState(1)
   const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
 
