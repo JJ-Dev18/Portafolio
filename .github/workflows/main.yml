@@ -15,8 +15,8 @@ jobs:
           npm install --force
           npm run-script build
           env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-          CI: false
+              REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+              CI: false
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
