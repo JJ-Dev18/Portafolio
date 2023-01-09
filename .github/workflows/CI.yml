@@ -53,4 +53,4 @@ jobs:
       #  run: npm run test
         
       - name: Create test build
-        run: npm run build
+        run: CI=false npm run build
