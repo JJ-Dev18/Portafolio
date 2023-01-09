@@ -43,9 +43,11 @@ jobs:
       - name: Install package dependencies
         run: npm install --force
 
-      - name: Deploy the app
-        # This assumes that there is deploy script, change as required
-        run: npm run deploy
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          BRANCH: production
+          FOLDER: build
         # Environment secrets, generally stored in Github Secrets (un-comment as required)
         # env:
           # deployment_token: ${{ secrets.ACTIONS_DEPLOYMENT_TOKEN }}
