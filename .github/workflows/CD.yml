@@ -47,7 +47,7 @@ jobs:
           CI=false npm run-script build
         env:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-          CI: false
+          CI: false 
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
