@@ -31,7 +31,7 @@ export const ProjectsScreen = () => {
   console.log(projects);
 
   const filterProjects = () => {
-    // if (search.length === 0)
+    // if (search.length === 0) sss 
     return projects.slice(current, current + cantProjects);
 
     // const filtered = projects.filter((project) => project.name.includes(search));
