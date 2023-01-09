@@ -6,6 +6,7 @@ jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
+    environment: Production
     strategy:
       matrix:
         node-version: [16.x]
@@ -29,5 +30,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          BRANCH: gh-pages
+          BRANCH: Production
           FOLDER: build
