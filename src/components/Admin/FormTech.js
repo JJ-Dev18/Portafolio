@@ -34,7 +34,7 @@ export const FormTech = () => {
   const onUpdate = (e) => {
     e.preventDefault();
     setdisabled(!disabled);
-    if(file != ""){
+    if(file !== ""){
       setimg(state.img)
       setFile("")
     } else{

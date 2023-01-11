@@ -9,14 +9,21 @@ import PropTypes from 'prop-types'
  const SkeletonCard =( props) => {
   return (
     <ContentLoader
-      width={356}
-      height={250}
+      className="skeleton-projects"
       viewBox="0 0 356 250"
       backgroundColor="#f0f0f0"
       foregroundColor="#e6e6e6"
       {...props}
     >
-      <rect x="0" y="0" rx="10" ry="10" width="356" height="250" />
+      <rect
+        x="0"
+        y="0"
+        rx="10"
+        ry="10"
+        width="356"
+        height="250"
+        className="skeleton-projects"
+      />
     </ContentLoader>
   );
 }

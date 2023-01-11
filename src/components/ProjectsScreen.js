@@ -1,62 +1,59 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../context/Context";
-import Logo from "../images/logo.png";
-import { motion } from "framer-motion";
-
+import React, { useEffect, useState } from "react";
 import { Project } from "./Project";
 import { Navbar } from "./Navbar";
 import { useFetch } from "../hooks/useFetch";
 import Skeleton from "./Skeleton";
-import { Link } from "react-router-dom";
 
 export const ProjectsScreen = () => {
-  // const [search, setSearch] = useState("");
-  // const handleCerrarPort = () => {
-  //   dispatch(openPortafolio())
-  // }
-  // const { dispatch } = useContext(Context);
   const [current, setCurrent] = useState(0);
   const [projects, setprojects] = useState([]);
-  const [cantProjects,setCantProjects] = useState(9)
+  const [cantProjects,setCantProjects] = useState(6)
   const [filter, setfilter] = useState('name')
   const [page, setPage] = useState(1)
   const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
-
+ 
   useEffect(() => {
     if (!loading) {
-      setprojects(data.projects);
+      setprojects(data.projects.slice(current, current + cantProjects));
     }
-  }, [loading, data]);
+  }, [loading, data,current,cantProjects]);
 
-  console.log(projects);
 
-  const filterProjects = () => {
-    // if (search.length === 0) sss 
-    return projects.slice(current, current + cantProjects);
 
-    // const filtered = projects.filter((project) => project.name.includes(search));
-    // return filtered.slice(currentPage, currentPage + 5);
-  };
+   const handleFilter = (e) => {
+     let name = e.target.value;
+     console.log(name,"name")
+     if (name !== "") {
+       name = name.toLowerCase();
+       filter === "name"
+         ? setprojects(
+             data.projects.filter((project) => project.nombre.toLowerCase().includes(name))
+           )
+         : setprojects(
+             data.projects.filter((project) => {
+               let contieneTechnologia = false;
+               for (var key in project.tecnologias) {
+                 if( project.tecnologias[key].nombre.toLowerCase().includes(name) ){
+                   contieneTechnologia = true
+                 }
+                 
+               }
+              return contieneTechnologia;
+             })
+           );
+     } else {
+        setprojects(data.projects.slice(current, current + cantProjects));
+     }
+   };
 
-  // const filterBy = (name)=>{
-  //   switch (filter) {
-  //     case "name":
-  //       return projects.filter((pro) => pro.name == name);
-  //       break;
-  //     case "technology":
-  //       return projects.filter((pro) => pro.name == name);
-  //       break;
-  //     case "complexity":
-  //       break;
-  //     default:
-  //       break;
-  //   }
+   console.log(current,"current")
 
+ 
   
 
   // }
   const nextPage = () => {
-    if (projects.length > current + cantProjects){
+    if (data.total > current + cantProjects){
       setCurrent(current + cantProjects);
       setPage(page + 1 )
     }
@@ -67,11 +64,10 @@ export const ProjectsScreen = () => {
       setPage(page - 1)
     }
   };
-  // const onSearchChange = ({ target }) => {
-  //   setCurrent(0);
-  //   setSearch(target.value);
-  // };
-
+  const onSelected = (e) => {
+    let cantidad = parseInt(e.target.value);
+    setCantProjects(cantidad);
+  };
   return (
     <>
       <div
@@ -82,33 +78,55 @@ export const ProjectsScreen = () => {
       >
         <i className="fas fa-arrow-circle-left" onClick={prevPage}></i>
         {!loading && (
-          <p>
-            Page {page} de {Math.ceil(data?.projects.length / cantProjects)}
-          </p>
+          <div>
+            <p>
+              Projects per page
+              <select onChange={onSelected} id="cantProjects" defaultValue={6}>
+                <option value={6}>6</option>
+                <option value={9}>9</option>
+                <option value={12}>12</option>
+              </select>
+            </p>
+            <p>
+              Page {page} of {Math.ceil(data?.projects.length / cantProjects)}
+            </p>
+          </div>
         )}
+
         <i className="fas fa-arrow-circle-right" onClick={nextPage}></i>
       </div>
-      <div className={`content_projects ${cantProjects > 6 && "scroll"}`}>
+      <div className={`content_projects scroll`}>
         <div
           className="content_projects-title"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 1.5 }}
         >
-          <Link end="true" to={`../home`}>
+          {/* <Link end="true" to={`../home`}>
             <img src={Logo} alt="logo" />
-          </Link>
+          </Link> */}
           <h1>Projects</h1>
+          <div id="content-search">
+            <input
+              id="search-input"
+              type="text"
+              onChange={handleFilter}
+              placeholder="Filter by"
+            />
+            <select id="target" onChange={(e) => setfilter(e.target.value)}>
+              <option value="name">Name</option>
+              <option value="technology">Technology</option>
+            </select>
+          </div>
         </div>
         <div className="grid_projects">
           {!loading ? (
-            filterProjects().map((project) => (
+            projects.map((project) => (
               <Project key={project.nombre} project={project} />
             ))
           ) : (
             <Skeleton numProyectos={cantProjects} />
           )}
-          {/* <Skeleton /> */}
         </div>
 
         <div className="content_projects_nav">

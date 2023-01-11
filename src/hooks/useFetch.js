@@ -42,7 +42,7 @@ export const useFetch = (url,properties) => {
                 error: 'No se pudo cargar la info'
                          })
         })
-    }, [url])
+    }, [url,properties])
 
    
     return state ;

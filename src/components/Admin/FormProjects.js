@@ -46,13 +46,13 @@ export const FormProjects = () => {
       } else encontrado = false;
     }
     setProjectTecnologies(projectTecnologies);
-  }, [loading]);
+  }, [loading,data.techs,state.tecnologias]);
 
   useEffect(() => {
     if (!loading) {
       loadingProjectTechnologies();
     }
-  }, [loading]);
+  }, [loading,loadingProjectTechnologies]);
 
   const handleInputChecked = (position) => {
     const updatedTechnologies = projectTecnologies.map((item, index) =>
@@ -81,7 +81,7 @@ export const FormProjects = () => {
     setdisabled(!disabled);
     
   };
-  console.log(state)
+
   const atras = (e) => {
     e.preventDefault();
     navigate(-1);

@@ -1,12 +1,10 @@
 import React ,{useState} from 'react'
-import { motion } from "framer-motion";
 import ModalProject from './ModalProject';
 
-const projectTec = require.context('../images/svg',true)
 export const Project = ({project}) => {
   const [showModal, setshowModal] = useState(false)
   
-  console.log(project)
+
   return (
     <>
       <div

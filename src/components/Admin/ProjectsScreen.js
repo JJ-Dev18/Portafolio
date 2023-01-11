@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import { Project } from "../Project";
 
 export const ProjectsScreen = () => {
   const alert = useAlert();

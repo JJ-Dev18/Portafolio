@@ -1,5 +1,4 @@
-import React ,{useContext} from 'react'
-import { Context } from '../context/Context';
+import React  from 'react'
 import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect'
 import { Navbar } from './Navbar';
