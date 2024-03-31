@@ -8,7 +8,7 @@ Web Page with All my frontend projects throughout my career
 
 ## Color Reference
 
-| Color             | Hex                                                                |
+| Color             | Hexa                                                                |
 | ----------------- | ------------------------------------------------------------------ |
 | Html | ![#f06529](https://via.placeholder.com/10/f06529?text=+) #f06529 |
 | css | ![#2965f1](https://via.placeholder.com/10/2965f1?text=+) #2965f1 |
