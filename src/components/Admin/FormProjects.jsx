@@ -27,7 +27,7 @@ export const FormProjects = () => {
   const token = localStorage.getItem("token");
   console.log(file)
   const { data, loading } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies`
+    `${import.meta.env.VITE_API_API_URL}/technologies`
   );
 
   const loadingProjectTechnologies = useCallback(() => {
@@ -107,7 +107,7 @@ export const FormProjects = () => {
        formData.append(`tecnologias`, technology._id);
      });
 
-    fetch(`${process.env.REACT_APP_API_URL}/projects/${state._id}`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/projects/${state._id}`, {
       method: "PUT",
       headers: {
         "x-token": token,

@@ -25,7 +25,7 @@ export const FormCrearTech = () => {
     formData.append("nombre", nombre);
     formData.append("img", file);
 
-    fetch(`${process.env.REACT_APP_API_URL}/technologies`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/technologies`, {
       method: "POST",
       headers: {
         "x-token": token,

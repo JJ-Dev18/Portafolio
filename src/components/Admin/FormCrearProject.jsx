@@ -8,7 +8,7 @@ export const FormCrearProject = () => {
   const alert = useAlert();
   const [disabled, setdisabled] = useState(false);
   const { data, loading } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies`
+    `${import.meta.env.VITE_API_API_URL}/technologies`
   );
   const [checkedState, setCheckedState] = useState(new Array(15).fill(false));
   const [load, setLoad] = useState(false);
@@ -65,7 +65,7 @@ export const FormCrearProject = () => {
     });
 
     
-    fetch(`${process.env.REACT_APP_API_URL}/projects`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/projects`, {
       method: "POST",
       headers: {
         "x-token": token,

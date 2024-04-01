@@ -10,7 +10,7 @@ export const ProjectsScreen = () => {
   const [cantProjects,setCantProjects] = useState(6)
   const [filter, setfilter] = useState('name')
   const [page, setPage] = useState(1)
-  const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
+  const { loading, data } = useFetch(`${import.meta.env.VITE_API_URL}/projects`);
  
   useEffect(() => {
     if (!loading) {

@@ -46,7 +46,7 @@ jobs:
           npm install --force
           CI=false npm run-script build
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          VITE_API_API_URL: ${{ secrets.VITE_API_API_URL }}
           CI: false 
 
       - name: Deploy 🚀

@@ -49,7 +49,7 @@ export const FormTech = () => {
     formData.append("oldImg",state.img)
    
 
-    fetch(`${process.env.REACT_APP_API_URL}/technologies/${state._id}`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/technologies/${state._id}`, {
       method: "PUT",
       headers: {
         "x-token": token,

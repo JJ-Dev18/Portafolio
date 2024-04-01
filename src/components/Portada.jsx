@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export const Portada = ({history}) => {
   // const {estado,dispatch} = useContext(Context)
-  console.log(process.env.REACT_APP_API_URL);
+  console.log(import.meta.env.VITE_API_URL);
   console.log("se realizo el cambio la pt")
   return (
     <div className="content_portada">

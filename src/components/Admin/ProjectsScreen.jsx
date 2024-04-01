@@ -7,7 +7,7 @@ export const ProjectsScreen = () => {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const { loading, data } = useFetch(`${process.env.REACT_APP_API_URL}/projects`);
+  const { loading, data } = useFetch(`${import.meta.env.VITE_API_API_URL}/projects`);
   const [projects, setprojects] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -20,7 +20,7 @@ export const ProjectsScreen = () => {
     }
   }, [loading, data]);
   const deleteP = (project) => {
-    fetch(`${process.env.REACT_APP_API_URL}/projects/${project._id}`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/projects/${project._id}`, {
       method: "DELETE",
       headers: {
         "x-token": token,

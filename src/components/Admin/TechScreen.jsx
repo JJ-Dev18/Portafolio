@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const TechScreen = (props) => {
   const navigate = useNavigate();
   const { loading, data } = useFetch(
-    `${process.env.REACT_APP_API_URL}/technologies`
+    `${import.meta.env.VITE_API_API_URL}/technologies`
   );
   const alert = useAlert();
   const token = localStorage.getItem("token");
@@ -22,7 +22,7 @@ export const TechScreen = (props) => {
   }, [loading, data]);
 
   const deleteP = (tech) => {
-    fetch(`${process.env.REACT_APP_API_URL}/technologies/${tech._id}`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/technologies/${tech._id}`, {
       method: "DELETE",
       headers: {
         "x-token": token,

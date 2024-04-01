@@ -10,7 +10,7 @@ export const Login = ({ history }) => {
     msg: "",
   });
   const { dispatch } = useContext(Context);
-  // const { data, loading } = useFetch("process.env.REACT_APP_API_URL//auth/login");
+  // const { data, loading } = useFetch("import.meta.env.VITE_API_API_URL//auth/login");
   const handleInputCorreo = ({ target }) => {
     setCorreo(target.value);
   };
@@ -18,7 +18,7 @@ export const Login = ({ history }) => {
     setpass(target.value);
   };
   const submit = (e) => {
-    fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+    fetch(`${import.meta.env.VITE_API_API_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

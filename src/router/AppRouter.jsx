@@ -26,7 +26,7 @@ export const AppRouter = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch(`${process.env.REACT_APP_API_URL}/auth/comprobarToken`, {
+      fetch(`${import.meta.env.VITE_API_API_URL}/auth/comprobarToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
