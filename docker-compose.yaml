@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      
+    container_name: frontend
+    env_file:
+      - .env.development.local
+    ports:
+      - "3000:3000"
